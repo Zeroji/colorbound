@@ -16,8 +16,8 @@ func update_collision_bits():
     set_collision_mask_bit(collision_bit, true)
 
 func _ready():
-    update_collision_bits()
-
+    if not Engine.editor_hint:
+        update_collision_bits()
 
 func _on_Button_body_entered(body):
     if body is Player:
