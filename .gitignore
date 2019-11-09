@@ -1,0 +1,9 @@
+# Godot files
+.import/
+*.import
+
+# Aseprite base resources
+*.ase
+
+# Environment
+.vscode/
