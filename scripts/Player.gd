@@ -10,7 +10,7 @@ const JUMP_TIME = 0.5
 var velocity = Vector2()
 var target_velx = 0
 var jump: float = 0
-var color = CS.Colors.white setget set_color
+export (CS.Colors) var color = CS.Colors.white setget set_color
 
 func _physics_process(delta):
     var snap = Vector2(0, 20)
