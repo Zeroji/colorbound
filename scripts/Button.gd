@@ -6,7 +6,7 @@ class_name XButton
 signal button_on
 signal button_off
 
-export (CS.Colors) var color = CS.Colors.green
+export (CS.Colors) var color = CS.Colors.yellow
 var state: bool = false
 
 func update_collision_bits():
