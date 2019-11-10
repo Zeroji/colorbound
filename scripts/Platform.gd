@@ -18,6 +18,7 @@ func update_platform_length():
     $Hitbox.shape.extents.x = length/2
     $Hitbox.one_way_collision = true
     # Update sprite color and size
+    $ColorAdd.color = color
     $NinePatch.region_rect.position.y = CS.id(color) * 8
     $NinePatch.rect_size = Vector2(length, HEIGHT)
     $NinePatch.rect_position = $NinePatch.rect_size / -2

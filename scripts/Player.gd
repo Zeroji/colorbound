@@ -10,7 +10,7 @@ const JUMP_TIME = 0.5
 var velocity = Vector2()
 var target_velx = 0
 var jump: float = 0
-var state = "default"
+var color = CS.Colors.white setget set_color
 
 func _physics_process(delta):
     var snap = Vector2(0, 20)
@@ -32,7 +32,7 @@ func _physics_process(delta):
         jump = JUMP_TIME
     
     target_velx = lerp(target_velx, walk_speed*WALK_SPEED, 15*delta)
-    velocity.x = walk_speed*WALK_SPEED
+    velocity.x = target_velx # walk_speed*WALK_SPEED
     #velocity +=  + get_floor_velocity()
     """
     var sprite: AnimatedSprite = $AnimatedSprite
@@ -50,8 +50,9 @@ func _on_Switcher_body_entered(body):
     if body == $Player:
         print(body)
 
-func set_color(color):
-    state = color
+func set_color(col):
+    color = col
+    $ColorAdd.set_color(color)
     $AnimatedSprite.animation = CS.name(color)
     var collision_bit = CS.bit(color)
     for i in range(10, 20):

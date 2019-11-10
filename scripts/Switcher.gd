@@ -1,10 +1,11 @@
 tool
 extends Area2D
 
-export (CS.Colors) var state = CS.Colors.red
+export (CS.Colors) var color = CS.Colors.red
 
 func update_animation_state():
-    $Sprite.animation = CS.name(state)
+    $Sprite.animation = CS.name(color)
+    $ColorAdd.color = color
 
 func _ready():
     if not Engine.editor_hint:
@@ -16,4 +17,4 @@ func _process(delta):
 
 func _on_Switcher_body_entered(body):
     if body is Player:
-        body.set_color(state)
+        body.color = self.color

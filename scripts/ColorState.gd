@@ -2,12 +2,17 @@ extends Node
 
 class_name CS
 
-enum Colors { red, yellow, blue }
+enum Colors { white, red, yellow, blue, orange, green, purple, all }
 
 const ColorData = {
-    Colors.red:    {id=0, bit=10, name = "red"},
-    Colors.yellow: {id=1, bit=11, name = "yellow"},
-    Colors.blue :  {id=2, bit=12, name = "blue"},
+    Colors.white:   {id=0, bit=10, name = "white"},
+    Colors.red:     {id=1, bit=11, name = "red"},
+    Colors.yellow:  {id=2, bit=12, name = "yellow"},
+    Colors.blue :   {id=3, bit=13, name = "blue"},
+    Colors.orange:  {id=4, bit=14, name = "orange"},
+    Colors.green:   {id=5, bit=15, name = "green"},
+    Colors.purple:  {id=6, bit=16, name = "purple"},
+    Colors.all:     {id=7, bit=17, name = "all"},
 }
 
 static func id(color):

@@ -18,6 +18,7 @@ func update_collision_bits():
 func _ready():
     if not Engine.editor_hint:
         update_collision_bits()
+    $ColorAdd.color = color
 
 func _on_Button_body_entered(body):
     if body is Player:

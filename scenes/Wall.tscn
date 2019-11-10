@@ -1,10 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/Wall.gd" type="Script" id=1]
 [ext_resource path="res://assets/wall_red.png" type="Texture" id=2]
+[ext_resource path="res://scenes/ColorAddSprite.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/coloradd.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 32 )
+
+[sub_resource type="AtlasTexture" id=2]
+resource_local_to_scene = true
+atlas = ExtResource( 4 )
+region = Rect2( 16, 0, 16, 16 )
 
 [node name="Wall" type="StaticBody2D"]
 collision_layer = 0
@@ -16,3 +23,9 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="ColorAdd" parent="." instance=ExtResource( 3 )]
+scale = Vector2( 2, 2 )
+texture = SubResource( 2 )
+color = 1
+style = 2

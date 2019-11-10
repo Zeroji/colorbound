@@ -1,10 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/Button.gd" type="Script" id=1]
 [ext_resource path="res://assets/button.png" type="Texture" id=2]
+[ext_resource path="res://scenes/ColorAddSprite.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/coloradd.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 8.0
+
+[sub_resource type="AtlasTexture" id=2]
+resource_local_to_scene = true
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 16, 16 )
 
 [node name="Button" type="Area2D"]
 collision_layer = 0
@@ -20,6 +27,11 @@ shape = SubResource( 1 )
 [node name="OffTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="ColorAdd" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -8 )
+texture = SubResource( 2 )
+style = 1
 [connection signal="body_entered" from="." to="." method="_on_Button_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Button_body_exited"]
 [connection signal="timeout" from="OffTimer" to="." method="_on_OffTimer_timeout"]

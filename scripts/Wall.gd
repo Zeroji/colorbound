@@ -23,7 +23,7 @@ func update_platform_length():
 func _ready():
     if not Engine.editor_hint:
         update_collision_bits()
-        #update_platform_length()
+    $ColorAdd.color = color
 
 #func _process(delta):
     #$Label.text = CS.name(color)
