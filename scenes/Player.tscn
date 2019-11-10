@@ -40,5 +40,6 @@ frames = SubResource( 1 )
 animation = "white"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, 8.5 )
 shape = SubResource( 2 )
