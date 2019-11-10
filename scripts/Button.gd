@@ -11,14 +11,15 @@ var state: bool = false
 
 func update_collision_bits():
     # Update layer/mask bits
-    var collision_bit = CS.bit(color)
-    set_collision_layer_bit(collision_bit, true)
-    set_collision_mask_bit(collision_bit, true)
+    for collision_bit in CS.bits(color):
+        set_collision_layer_bit(collision_bit, true)
+        set_collision_mask_bit(collision_bit, true)
 
 func _ready():
     if not Engine.editor_hint:
         update_collision_bits()
     $ColorAdd.color = color
+    print(collision_layer)
 
 func _on_Button_body_entered(body):
     if body is Player:

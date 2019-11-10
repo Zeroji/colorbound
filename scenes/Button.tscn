@@ -11,7 +11,7 @@ radius = 8.0
 [sub_resource type="AtlasTexture" id=2]
 resource_local_to_scene = true
 atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 16, 16 )
+region = Rect2( 32, 16, 16, 16 )
 
 [node name="Button" type="Area2D"]
 collision_layer = 0
@@ -31,6 +31,7 @@ one_shot = true
 [node name="ColorAdd" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -8 )
 texture = SubResource( 2 )
+color = 2
 style = 1
 [connection signal="body_entered" from="." to="." method="_on_Button_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Button_body_exited"]

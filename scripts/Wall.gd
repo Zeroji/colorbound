@@ -7,9 +7,9 @@ export (CS.Colors) var color = CS.Colors.red
 
 func update_collision_bits():
     # Update layer/mask bits
-    var collision_bit = CS.bit(color)
-    set_collision_layer_bit(collision_bit, true)
-    set_collision_mask_bit(collision_bit, true)
+    for collision_bit in CS.bits(color):
+        set_collision_layer_bit(collision_bit, true)
+        set_collision_mask_bit(collision_bit, true)
 """
 func update_platform_length():
     # Update hitbox size

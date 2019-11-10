@@ -1,12 +1,15 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/character/blue.png" type="Texture" id=2]
-[ext_resource path="res://assets/character/red.png" type="Texture" id=3]
-[ext_resource path="res://assets/character/white.png" type="Texture" id=4]
-[ext_resource path="res://assets/character/yellow.png" type="Texture" id=5]
-[ext_resource path="res://scenes/ColorAddSprite.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/coloradd.png" type="Texture" id=7]
+[ext_resource path="res://assets/character/green.png" type="Texture" id=3]
+[ext_resource path="res://assets/character/orange.png" type="Texture" id=4]
+[ext_resource path="res://assets/character/purple.png" type="Texture" id=5]
+[ext_resource path="res://assets/character/red.png" type="Texture" id=6]
+[ext_resource path="res://assets/character/white.png" type="Texture" id=7]
+[ext_resource path="res://assets/character/yellow.png" type="Texture" id=8]
+[ext_resource path="res://scenes/ColorAddSprite.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/coloradd.png" type="Texture" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -17,15 +20,30 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "red",
+"name": "green",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "white",
+"name": "orange",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "purple",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "red",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "white",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "yellow",
 "speed": 5.0
@@ -36,7 +54,7 @@ extents = Vector2( 15, 23.5 )
 
 [sub_resource type="AtlasTexture" id=3]
 resource_local_to_scene = true
-atlas = ExtResource( 7 )
+atlas = ExtResource( 10 )
 region = Rect2( 0, 0, 16, 16 )
 
 [node name="Player" type="KinematicBody2D"]
@@ -51,6 +69,6 @@ visible = false
 position = Vector2( 0, 8.5 )
 shape = SubResource( 2 )
 
-[node name="ColorAdd" parent="." instance=ExtResource( 6 )]
+[node name="ColorAdd" parent="." instance=ExtResource( 9 )]
 scale = Vector2( 2, 2 )
 texture = SubResource( 3 )

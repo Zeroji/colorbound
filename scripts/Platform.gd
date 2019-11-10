@@ -9,9 +9,9 @@ const HEIGHT = 8
 
 func update_collision_bits():
     # Update layer/mask bits
-    var collision_bit = CS.bit(color)
-    set_collision_layer_bit(collision_bit, true)
-    set_collision_mask_bit(collision_bit, true)
+    for collision_bit in CS.bits(color):
+        set_collision_layer_bit(collision_bit, true)
+        set_collision_mask_bit(collision_bit, true)
 
 func update_platform_length():
     # Update hitbox size
@@ -28,6 +28,7 @@ func _ready():
         update_collision_bits()
         update_platform_length()
 
+# warning-ignore:unused_argument
 func _process(delta):
     $Label.text = CS.name(color)
     if Engine.editor_hint:

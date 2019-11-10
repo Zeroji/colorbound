@@ -54,6 +54,6 @@ func set_color(col):
     color = col
     $ColorAdd.set_color(color)
     $AnimatedSprite.animation = CS.name(color)
-    var collision_bit = CS.bit(color)
+    var collision_bits = CS.bits(color)
     for i in range(10, 20):
-        set_collision_layer_bit(i, i==collision_bit)
+        set_collision_layer_bit(i, i in collision_bits)
