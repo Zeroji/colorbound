@@ -47,9 +47,10 @@ func _physics_process(delta):
         """
 
 func set_color(col):
+    # Update collision layers
+    if color != col:
+        set_collision_layer_bit(CS.layer(color), false)
+        set_collision_layer_bit(CS.layer(col), true)
     color = col
     $ColorAdd.set_color(color)
     $AnimatedSprite.animation = CS.name(color)
-    var collision_bits = CS.bits(color)
-    for i in range(10, 20):
-        set_collision_layer_bit(i, i in collision_bits)
