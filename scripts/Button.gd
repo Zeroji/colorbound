@@ -13,10 +13,6 @@ export (float) var wait_time = 0.5
 var state: bool = false
 
 func update_collision_bits():
-    print("Updating collisions, color is", color)
-    print("Wait time =", wait_time)
-    print("Bits =", CS.bits(color))
-    print(collision_layer)
     # Update layer/mask bits
     for collision_bit in CS.bits(color):
         set_collision_layer_bit(collision_bit, true)
@@ -32,7 +28,6 @@ func _ready():
     if not Engine.editor_hint:
         update_collision_bits()
         $OffTimer.wait_time = wait_time
-    print(self, collision_layer)
 
 func _process(delta):
     if Engine.editor_hint:

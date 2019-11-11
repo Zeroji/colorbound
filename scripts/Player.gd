@@ -46,10 +46,6 @@ func _physics_process(delta):
         sprite.animation = "default"
         """
 
-func _on_Switcher_body_entered(body):
-    if body == $Player:
-        print(body)
-
 func set_color(col):
     color = col
     $ColorAdd.set_color(color)
