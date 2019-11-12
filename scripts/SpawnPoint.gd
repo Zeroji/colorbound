@@ -7,7 +7,7 @@ func _ready():
     if not Engine.editor_hint:
         $Rect.visible = false
 
-#ignore_warning:unused_parameter
+#warning-ignore:unused_argument
 func _process(delta):
     if Engine.editor_hint:
         $Rect.color = CS.col(color)
