@@ -1,0 +1,146 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://scenes/Elevator.gd" type="Script" id=1]
+[ext_resource path="res://assets/elevator_frame.png" type="Texture" id=2]
+[ext_resource path="res://assets/elevator_mask.png" type="Texture" id=3]
+[ext_resource path="res://assets/elevators.png" type="Texture" id=4]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/elevators.png-2f0f68b3a482962d89e5bad9517b74bc.stex"
+
+[sub_resource type="AtlasTexture" id=2]
+resource_local_to_scene = true
+atlas = SubResource( 1 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 64, 64, 64, 64 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "open"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("DoorLeft:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 1.2, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -1, 0 ), Vector2( -17, 0 ), Vector2( -19, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("DoorRight:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 1.2, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 0 ), Vector2( 17, 0 ), Vector2( 19, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "shut"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("DoorLeft:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -19, 0 ), Vector2( -15, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("DoorRight:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 19, 0 ), Vector2( 15, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 128.996
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 3, 2 )
+
+[node name="Elevator" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Frame" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 3 )
+mode = 3
+range_item_cull_mask = 2
+
+[node name="DoorLeft" type="Sprite" parent="."]
+light_mask = 2
+texture = SubResource( 2 )
+
+[node name="DoorRight" type="Sprite" parent="."]
+light_mask = 2
+texture = SubResource( 3 )
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+anims/open = SubResource( 4 )
+anims/shut = SubResource( 5 )
+
+[node name="Approach" type="Area2D" parent="."]
+editor/display_folded = true
+visible = false
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Approach"]
+shape = SubResource( 6 )
+
+[node name="HitboxLeft" type="Area2D" parent="."]
+editor/display_folded = true
+visible = false
+position = Vector2( -17, 30 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxLeft"]
+shape = SubResource( 7 )
+
+[node name="HitboxRight" type="Area2D" parent="."]
+editor/display_folded = true
+visible = false
+position = Vector2( 17, 30 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxRight"]
+shape = SubResource( 7 )
+[connection signal="body_entered" from="Approach" to="." method="_on_Approach_body_entered"]
+[connection signal="body_exited" from="Approach" to="." method="_on_Approach_body_exited"]
+[connection signal="body_entered" from="HitboxLeft" to="." method="_on_HitboxLeft_body_entered"]
+[connection signal="body_exited" from="HitboxLeft" to="." method="_on_HitboxLeft_body_exited"]
+[connection signal="body_entered" from="HitboxRight" to="." method="_on_HitboxRight_body_entered"]
+[connection signal="body_exited" from="HitboxRight" to="." method="_on_HitboxRight_body_exited"]
