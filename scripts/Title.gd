@@ -9,4 +9,4 @@ func button_quit(body):
 # warning-ignore:unused_argument
 func button_new_game(body):
     # warning-ignore:return_value_discarded
-    get_tree().change_scene("res://scenes/levels/Showcase.tscn")
+    get_tree().change_scene("res://scenes/levels/Intro_00.tscn")
