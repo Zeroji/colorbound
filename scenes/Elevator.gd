@@ -15,6 +15,9 @@ func update_collision_bits():
     var color_bit = CS.layer(color)
     $Approach.set_collision_layer_bit(color_bit, true)
     $Approach.set_collision_mask_bit(color_bit, true)
+    if color == CS.Colors.white:
+        for bit in range(11, 18):
+            $Approach.set_collision_mask_bit(bit, true)
 
 func update_sprite():
     $DoorLeft.texture.region.position.x = CS.id(color) * TEXTURE_SIZE
