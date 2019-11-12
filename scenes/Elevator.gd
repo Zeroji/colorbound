@@ -27,7 +27,8 @@ func _ready():
 
 func check_status():
     if opened and hit_left and hit_right:
-        emit_signal("activated")
+        activated = true
+        emit_signal("activated", self)
         $DoorLeft.z_index += 2
         $DoorRight.z_index += 2
         $Animation.play_backwards("open")
