@@ -8,6 +8,7 @@ export (CS.Colors) var color = CS.Colors.red
 var opened: bool = false
 var hit_left: bool = false
 var hit_right: bool = false
+var activated: bool = false
 const TEXTURE_SIZE: int = 64
 
 func update_collision_bits():
@@ -30,12 +31,12 @@ func check_status():
         $DoorLeft.z_index += 2
         $DoorRight.z_index += 2
         $Animation.play_backwards("open")
-        $Animation.connect("animation_finished", self, "_on_animation_finished")
 
-func _on_animation_finished(anim):
-    if anim == "open":
+func _on_Animation_animation_finished(anim_name):
+    if anim_name == "open" and activated:
         emit_signal("finished")
 
+# warning-ignore:unused_argument
 func _process(delta):
     if Engine.editor_hint:
         update_sprite()
@@ -75,3 +76,4 @@ func _on_HitboxRight_body_entered(body):
 func _on_HitboxRight_body_exited(body):
     if body is Player:
         hit_right = false
+

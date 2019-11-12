@@ -18,4 +18,5 @@ func _on_Elevator_activated():
 
 
 func _on_Elevator_finished():
+    # warning-ignore:return_value_discarded
     get_tree().change_scene("res://scenes/Title.tscn")

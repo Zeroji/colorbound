@@ -29,6 +29,7 @@ func _ready():
         update_collision_bits()
         $OffTimer.wait_time = wait_time
 
+# warning-ignore:unused_argument
 func _process(delta):
     if Engine.editor_hint:
         update_color()

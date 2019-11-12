@@ -11,6 +11,7 @@ func _ready():
     if not Engine.editor_hint:
         update_animation_state()
 
+# warning-ignore:unused_argument
 func _process(delta):
     if Engine.editor_hint:
         update_animation_state()

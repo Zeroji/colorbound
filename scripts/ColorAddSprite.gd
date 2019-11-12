@@ -17,6 +17,7 @@ func set_color(col):
 func _ready():
     update_sprite()
 
+# warning-ignore:unused_argument
 func _process(delta):
     if Engine.editor_hint:
         update_sprite()

@@ -22,6 +22,7 @@ func _ready():
         update_collision_bits()
     update_sprite()
 
+# warning-ignore:unused_argument
 func _process(delta):
     if Engine.editor_hint:
         update_sprite()
