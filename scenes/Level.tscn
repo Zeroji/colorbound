@@ -20,6 +20,7 @@ margin_right = 192.0
 margin_bottom = 80.0
 
 [node name="TileMap" type="TileMap" parent="."]
+z_index = 1
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 32, 32 )
 format = 1
@@ -27,6 +28,7 @@ tile_data = PoolIntArray( -1, 0, 4, -65536, 0, 5, -65535, 0, 5, -65534, 0, 5, -6
 
 [node name="SpawnPoint" parent="." instance=ExtResource( 4 )]
 position = Vector2( 64, 576 )
+color = 0
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 visible = false
@@ -43,3 +45,4 @@ z_index = 1
 [node name="Elevators" type="Node2D" parent="."]
 
 [node name="Text" type="Node2D" parent="."]
+z_index = 1

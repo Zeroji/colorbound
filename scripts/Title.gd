@@ -2,6 +2,9 @@ extends Control
 
 class_name TitleScreen
 
+func _ready():
+    LL.title_mode = true
+
 # warning-ignore:unused_argument
 func button_quit(body):
     get_tree().quit()
