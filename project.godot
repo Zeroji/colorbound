@@ -27,17 +27,17 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Level",
 "language": "GDScript",
-"path": "res://scenes/Level.gd"
+"path": "res://scripts/Level.gd"
 }, {
 "base": "StaticBody2D",
 "class": "Platform",
 "language": "GDScript",
-"path": "res://scripts/Platform.gd"
+"path": "res://scripts/objects/Platform.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://scripts/Player.gd"
+"path": "res://scripts/objects/Player.gd"
 }, {
 "base": "Control",
 "class": "TitleScreen",
@@ -47,12 +47,12 @@ _global_script_classes=[ {
 "base": "StaticBody2D",
 "class": "Wall",
 "language": "GDScript",
-"path": "res://scripts/Wall.gd"
+"path": "res://scripts/objects/Wall.gd"
 }, {
 "base": "Area2D",
 "class": "XButton",
 "language": "GDScript",
-"path": "res://scripts/Button.gd"
+"path": "res://scripts/objects/Button.gd"
 } ]
 _global_script_class_icons={
 "CS": "",

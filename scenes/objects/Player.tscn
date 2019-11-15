@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://scripts/objects/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/character/blue.png" type="Texture" id=2]
 [ext_resource path="res://assets/character/green.png" type="Texture" id=3]
 [ext_resource path="res://assets/character/orange.png" type="Texture" id=4]
@@ -8,8 +8,10 @@
 [ext_resource path="res://assets/character/red.png" type="Texture" id=6]
 [ext_resource path="res://assets/character/white.png" type="Texture" id=7]
 [ext_resource path="res://assets/character/yellow.png" type="Texture" id=8]
-[ext_resource path="res://scenes/ColorAddSprite.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/objects/ColorAddSprite.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/coloradd.png" type="Texture" id=10]
+
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

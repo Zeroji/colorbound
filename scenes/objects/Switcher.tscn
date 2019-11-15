@@ -1,14 +1,16 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://scripts/Switcher.gd" type="Script" id=1]
+[ext_resource path="res://scripts/objects/Switcher.gd" type="Script" id=1]
 [ext_resource path="res://assets/switchers/blue.png" type="Texture" id=2]
 [ext_resource path="res://assets/switchers/green.png" type="Texture" id=3]
 [ext_resource path="res://assets/switchers/orange.png" type="Texture" id=4]
 [ext_resource path="res://assets/switchers/purple.png" type="Texture" id=5]
 [ext_resource path="res://assets/switchers/red.png" type="Texture" id=6]
 [ext_resource path="res://assets/switchers/yellow.png" type="Texture" id=7]
-[ext_resource path="res://scenes/ColorAddSprite.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/objects/ColorAddSprite.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/coloradd.png" type="Texture" id=9]
+
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
