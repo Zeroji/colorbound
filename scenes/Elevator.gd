@@ -5,6 +5,7 @@ signal activated
 signal finished
 
 export (CS.Colors) var color = CS.Colors.red
+export (int) var approachRadius = 128
 var opened: bool = false
 var hit_left: bool = false
 var hit_right: bool = false
@@ -25,6 +26,7 @@ func update_sprite():
 
 func _ready():
     if not Engine.editor_hint:
+        $Approach/Hitbox.shape.radius = approachRadius
         update_sprite()
         update_collision_bits()
 

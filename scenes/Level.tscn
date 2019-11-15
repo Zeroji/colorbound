@@ -28,7 +28,6 @@ tile_data = PoolIntArray( -1, 0, 4, -65536, 0, 5, -65535, 0, 5, -65534, 0, 5, -6
 
 [node name="SpawnPoint" parent="." instance=ExtResource( 4 )]
 position = Vector2( 64, 576 )
-color = 0
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 visible = false
@@ -45,4 +44,5 @@ z_index = 1
 [node name="Elevators" type="Node2D" parent="."]
 
 [node name="Text" type="Node2D" parent="."]
+visible = false
 z_index = 1
