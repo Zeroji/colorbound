@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scripts/objects/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/character/blue.png" type="Texture" id=2]
@@ -10,8 +10,12 @@
 [ext_resource path="res://assets/character/yellow.png" type="Texture" id=8]
 [ext_resource path="res://scenes/objects/ColorAddSprite.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/coloradd.png" type="Texture" id=10]
-
-
+[ext_resource path="res://assets/ui/touch_left.png" type="Texture" id=11]
+[ext_resource path="res://assets/ui/touch_left_pressed.png" type="Texture" id=12]
+[ext_resource path="res://assets/ui/touch_right.png" type="Texture" id=13]
+[ext_resource path="res://assets/ui/touch_right_pressed.png" type="Texture" id=14]
+[ext_resource path="res://assets/ui/touch_jump.png" type="Texture" id=15]
+[ext_resource path="res://assets/ui/touch_jump_pressed.png" type="Texture" id=16]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -74,3 +78,40 @@ shape = SubResource( 2 )
 [node name="ColorAdd" parent="." instance=ExtResource( 9 )]
 scale = Vector2( 2, 2 )
 texture = SubResource( 3 )
+color = 0
+style = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ButtonLeft" type="TouchScreenButton" parent="CanvasLayer"]
+visible = false
+modulate = Color( 1, 1, 1, 0.501961 )
+position = Vector2( 0, 512 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 11 )
+pressed = ExtResource( 12 )
+passby_press = true
+action = "left"
+visibility_mode = 1
+
+[node name="ButtonRight" type="TouchScreenButton" parent="CanvasLayer"]
+visible = false
+modulate = Color( 1, 1, 1, 0.501961 )
+position = Vector2( 128, 512 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 13 )
+pressed = ExtResource( 14 )
+passby_press = true
+action = "right"
+visibility_mode = 1
+
+[node name="ButtonJump" type="TouchScreenButton" parent="CanvasLayer"]
+visible = false
+modulate = Color( 1, 1, 1, 0.501961 )
+position = Vector2( 896, 512 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 15 )
+pressed = ExtResource( 16 )
+passby_press = true
+action = "jump"
+visibility_mode = 1
