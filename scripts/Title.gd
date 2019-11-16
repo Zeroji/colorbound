@@ -3,13 +3,18 @@ extends Control
 class_name TitleScreen
 
 func _ready():
-    LL.title_mode = true
+    if Main.sd.has("checkpoint"):
+        $Map/Buttons/Continue.position.y += 32
+        $Map/Buttons/Continue/LevelName.text = Main.sd.checkpoint.level
 
-# warning-ignore:unused_argument
 func button_quit(body):
-    get_tree().quit()
+    if body is Player:
+        get_tree().quit()
 
-# warning-ignore:unused_argument
 func button_new_game(body):
-    # warning-ignore:return_value_discarded
-    get_tree().change_scene("res://scenes/levels/Intro_00.tscn")
+    if body is Player:
+        Main.start_new()
+
+func button_continue(body):
+    if body is Player:
+        Main.resume()

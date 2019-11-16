@@ -1,8 +1,7 @@
 extends Node
 
-class_name LL
-
-var title_mode = false
+const SCENE_PATH = "res://scenes/levels/%s.tscn"
+const TITLE_PATH = "res://scenes/Title.tscn"
 
 const Levels = [
     "Intro_00",
@@ -13,17 +12,14 @@ const Levels = [
     "Showcase",
 ]
 
-static func next_level(tree: SceneTree):
-    # Quit if running a level in debug mode
-    if not LL.title_mode:
-        tree.quit()
-        return
-    var name = tree.current_scene.name
-    var index = Levels.find(name)
-    if index == -1 or index + 1 >= len(Levels):
-        change_level(tree, "res://scenes/Title.tscn")
-    else:
-        change_level(tree, "res://scenes/levels/%s.tscn" % Levels[index + 1])
+const first_level = SCENE_PATH % Levels[0]
 
-static func change_level(tree: SceneTree, scene: String):
-    tree.change_scene(scene)
+func get(level_name):
+    return SCENE_PATH % level_name
+
+func next(level_name):
+    var index = Levels.find(level_name)
+    if index == -1 or index + 1 >= len(Levels):
+        return TITLE_PATH
+    else:
+        return SCENE_PATH % Levels[index + 1]

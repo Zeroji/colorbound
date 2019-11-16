@@ -19,11 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/paulloz.colorblindness/colorblindness.gd"
 }, {
-"base": "Node",
-"class": "LL",
-"language": "GDScript",
-"path": "res://scripts/LevelList.gd"
-}, {
 "base": "Node2D",
 "class": "Level",
 "language": "GDScript",
@@ -57,7 +52,6 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "CS": "",
 "Colorblindness": "",
-"LL": "",
 "Level": "",
 "Platform": "",
 "Player": "",
@@ -74,12 +68,9 @@ config/icon="res://icon.png"
 
 [autoload]
 
+Main="*res://scripts/Main.gd"
 CS="*res://scripts/ColorState.gd"
 LL="*res://scripts/LevelList.gd"
-
-[debug]
-
-settings/fps/force_fps=60
 
 [display]
 
