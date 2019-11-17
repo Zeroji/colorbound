@@ -6,20 +6,24 @@ var debug_mode: bool = true
 
 # Save data management
 const save_path = 'user://colorbound.json'
-const SAVE_VER: int = 1
+const SAVE_VER: int = 2
 const base_data = {
     ver = SAVE_VER,
     levels = {},
     settings = {},
 }
+const base_level_data = { completed = false }
 const base_settings = {"colorblind": false, "touchinput": 2}
 
 var sd = null # save data
 
 func update_save_data():
+    if sd.has('checkpoint') and sd.checkpoint.level == 'Intro_00':
+        sd.checkpoint.level = 'Intro_01'
     for key in base_data.keys():
         if not sd.has(key):
             sd[key] = base_data[key]
+    sd.levels.erase('Intro_00')
     for key in base_settings.keys():
         if not sd.settings.has(key):
             sd.settings[key] = base_settings[key]
@@ -93,7 +97,7 @@ func level_checkpoint(level_name, checkpoint_name, color_name):
     if debug_mode:
         return
     if not sd.levels.has(level_name):
-        sd.levels[level_name] = {}
+        sd.levels[level_name] = base_level_data
     sd.levels[level_name].checkpoint = {name = checkpoint_name, color = color_name}
     sd.checkpoint = {level = level_name, name = checkpoint_name, color = color_name}
     save_game()
@@ -103,11 +107,10 @@ func level_completed():
         get_tree().quit()
     else:
         # Store level completion data
-        if sd.levels.has(level_name):
+        if not sd.levels.has(level_name):
+            sd.levels[level_name] = base_level_data
             # Update scores and whatnot
-            pass
-        else:
-            sd.levels[level_name] = { completed = true }
+        sd.levels[level_name].completed = true
         save_game()
         switch_to(LL.next(level_name))
 
@@ -118,7 +121,7 @@ func _deferred_switch_to(scene_path, checkpoint=null):
     scene.free()
     var s = ResourceLoader.load(scene_path)
     scene = s.instance()
-    level_name = scene.name
+    level_name = scene.filename.substr(scene.filename.find_last("/")+1, 99).replace('.tscn', '')
     get_tree().root.add_child(scene)
     get_tree().set_current_scene(scene)
     if scene is Level and checkpoint != null:

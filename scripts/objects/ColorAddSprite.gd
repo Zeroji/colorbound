@@ -15,8 +15,9 @@ func set_color(col):
     update_sprite()
 
 func _ready():
-    visible = Main.sd.settings.colorblind
-    update_sprite()
+    if not Engine.editor_hint:
+        visible = Main.sd.settings.colorblind
+        update_sprite()
 
 # warning-ignore:unused_argument
 func _process(delta):

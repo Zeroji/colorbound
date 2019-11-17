@@ -5,7 +5,6 @@
 [ext_resource path="res://assets/elevator_mask.png" type="Texture" id=3]
 [ext_resource path="res://assets/elevators.png" type="Texture" id=4]
 
-
 [sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/elevators.png-2f0f68b3a482962d89e5bad9517b74bc.stex"
 
@@ -111,6 +110,7 @@ anims/open = SubResource( 4 )
 anims/shut = SubResource( 5 )
 
 [node name="Approach" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 0
 

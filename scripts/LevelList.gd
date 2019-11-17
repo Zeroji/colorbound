@@ -4,11 +4,13 @@ const SCENE_PATH = "res://scenes/levels/%s.tscn"
 const TITLE_PATH = "res://scenes/Title.tscn"
 
 const Levels = [
-    "Intro_00",
     "Intro_01",
     "Intro_02",
     "Intro_03",
     "Intro_04",
+    "Intro_05",
+    "Intro_06",
+    "Intro_07",
     "Showcase",
 ]
 

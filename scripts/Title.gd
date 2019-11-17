@@ -8,7 +8,8 @@ func _ready():
         $Map/Buttons/Continue/LevelName.text = Main.sd.checkpoint.level
 
 func button_quit(body):
-    Main.quit()
+    if body is Player:
+        Main.quit()
 
 func button_new_game(body):
     if body is Player:

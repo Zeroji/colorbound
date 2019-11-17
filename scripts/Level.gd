@@ -7,10 +7,11 @@ signal checkpoint
 signal completed
 
 var last_checkpoint = null
+var base_name = null
 
 func save_checkpoint(checkpoint):
     last_checkpoint = checkpoint
-    emit_signal("checkpoint", name, checkpoint.name, CS.name(checkpoint.color))
+    emit_signal("checkpoint", base_name, checkpoint.name, CS.name(checkpoint.color))
 
 func load_checkpoint(checkpoint):
     $Player.position = checkpoint.position
@@ -25,6 +26,9 @@ func resume(checkpoint_name, color_name):
 func _ready():
     connect("checkpoint", Main, "level_checkpoint")
     connect("completed", Main, "level_completed")
+    base_name = filename.substr(filename.find_last("/") + 1, 99).replace('.tscn', '')
+    if name != base_name:
+        push_warning("Level node name differs from file name: %s" % filename)
     if name == 'Level':
         push_warning("Level node has not been renamed")
     var spawn = get_node("SpawnPoint")
