@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scripts/objects/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/character/blue.png" type="Texture" id=2]
@@ -63,6 +63,15 @@ resource_local_to_scene = true
 atlas = ExtResource( 10 )
 region = Rect2( 0, 0, 16, 16 )
 
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 128, 320 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 128, 320 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 128, 320 )
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
@@ -78,8 +87,6 @@ shape = SubResource( 2 )
 [node name="ColorAdd" parent="." instance=ExtResource( 9 )]
 scale = Vector2( 2, 2 )
 texture = SubResource( 3 )
-color = 0
-style = 0
 
 [node name="TouchInput2" type="CanvasLayer" parent="."]
 
@@ -112,6 +119,68 @@ position = Vector2( 896, 512 )
 scale = Vector2( 2, 2 )
 normal = ExtResource( 15 )
 pressed = ExtResource( 16 )
+passby_press = true
+action = "jump"
+visibility_mode = 1
+
+[node name="TouchInput1" type="CanvasLayer" parent="."]
+
+[node name="ButtonLeft" type="TouchScreenButton" parent="TouchInput1"]
+visible = false
+modulate = Color( 1, 1, 1, 0.501961 )
+position = Vector2( 0, 576 )
+normal = ExtResource( 11 )
+pressed = ExtResource( 12 )
+passby_press = true
+action = "left"
+visibility_mode = 1
+
+[node name="ButtonRight" type="TouchScreenButton" parent="TouchInput1"]
+visible = false
+modulate = Color( 1, 1, 1, 0.501961 )
+position = Vector2( 64, 576 )
+normal = ExtResource( 13 )
+pressed = ExtResource( 14 )
+passby_press = true
+action = "right"
+visibility_mode = 1
+
+[node name="ButtonJump" type="TouchScreenButton" parent="TouchInput1"]
+visible = false
+modulate = Color( 1, 1, 1, 0.501961 )
+position = Vector2( 960, 576 )
+normal = ExtResource( 15 )
+pressed = ExtResource( 16 )
+passby_press = true
+action = "jump"
+visibility_mode = 1
+
+[node name="TouchInput3" type="CanvasLayer" parent="."]
+
+[node name="ButtonLeft" type="TouchScreenButton" parent="TouchInput3"]
+visible = false
+modulate = Color( 1, 1, 1, 0.501961 )
+position = Vector2( 128, 320 )
+shape = SubResource( 5 )
+shape_centered = false
+passby_press = true
+action = "left"
+visibility_mode = 1
+
+[node name="ButtonRight" type="TouchScreenButton" parent="TouchInput3"]
+visible = false
+modulate = Color( 1, 1, 1, 0.501961 )
+position = Vector2( 384, 320 )
+shape = SubResource( 4 )
+passby_press = true
+action = "right"
+visibility_mode = 1
+
+[node name="ButtonJump" type="TouchScreenButton" parent="TouchInput3"]
+visible = false
+modulate = Color( 1, 1, 1, 0.501961 )
+position = Vector2( 896, 320 )
+shape = SubResource( 6 )
 passby_press = true
 action = "jump"
 visibility_mode = 1

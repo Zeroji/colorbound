@@ -14,8 +14,10 @@ export (CS.Colors) var color = CS.Colors.white setget set_color
 export (bool) var mobile = true
 
 func _ready():
-    for node in $TouchInput2.get_children():
-        node.visible = true
+    var touch_node = get_node("TouchInput%d" % Main.sd.settings.touchinput)
+    if touch_node != null:
+        for node in touch_node.get_children():
+            node.visible = true
 
 func _physics_process(delta):
     var snap = Vector2(0, 20)

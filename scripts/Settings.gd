@@ -23,9 +23,9 @@ func apply_new_settings():
 
 func connect_label(node: Control, key, group):
     if not node.is_connected("focus_entered", self, "_on_enter_focus"):
-        node.connect("focus_entered", self, "_on_enter_focus", [node, group])
+        node.connect("focus_entered", self, "_on_enter_focus", [node])
     if not node.is_connected("focus_exited", self, "_on_exit_focus"):
-        node.connect("focus_exited", self, "_on_exit_focus", [node, group])
+        node.connect("focus_exited", self, "_on_exit_focus", [node])
     if not node.is_connected("gui_input", self, "_on_gui_input"):
         node.connect("gui_input", self, "_on_gui_input", [node, key, group])
 
@@ -83,20 +83,20 @@ func _ready():
             option.add_font_override("font", font)
             option.mouse_filter = Control.MOUSE_FILTER_STOP
             option.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-            option.connect("gui_input", self, "_on_option_click", [options, idx, st.key, opt[1]])
+            option.connect("gui_input", self, "_on_option_click", [options, idx, st.key])
             idx += 1
         connect_label(label, st.key, options)
     connect_label($Margin/VBox/Apply, null, null)
     connect_label($Margin/VBox/Discard, null, null)
     $Margin/VBox/Apply.grab_focus()
 
-func _on_enter_focus(node: Label, group):
+func _on_enter_focus(node: Label):
     node.text = '>' + node.text.substr(1, 99)
     node.add_color_override("font_color", color_focus)
     if node.name == 'Discard':
         node.add_color_override("font_color", Color("#ff2020"))
 
-func _on_exit_focus(node: Label, group):
+func _on_exit_focus(node: Label):
     node.text = ' ' + node.text.substr(1, 99)
     node.add_color_override("font_color", color_idle)
     if node.name == 'Discard':
@@ -115,7 +115,7 @@ func _on_gui_input(event: InputEvent, node: Label, key, group):
         elif node.name == 'Discard':
             Main.title()
 
-func _on_option_click(event: InputEvent, options, index, key, value):
+func _on_option_click(event: InputEvent, options, index, key):
     if event is InputEventMouseButton:
         event = event as InputEventMouseButton
         if event.button_index == BUTTON_LEFT and event.is_pressed():
