@@ -12,15 +12,21 @@ const base_data = {
     levels = {},
     settings = {},
 }
+const base_settings = {"colorblind": false, "touchinput": 2}
+
 var sd = null # save data
 
 func update_save_data():
     for key in base_data.keys():
         if not sd.has(key):
             sd[key] = base_data[key]
+    for key in base_settings.keys():
+        if not sd.settings.has(key):
+            sd.settings[key] = base_settings[key]
     save_game()
 func init_save_data():
     sd = base_data
+    sd.settings = base_settings
     save_game()
 func load_game():
     # Load saved game data
