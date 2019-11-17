@@ -43,12 +43,23 @@ align = 1
 [node name="Grid" type="GridContainer" parent="Margin/VBox"]
 margin_top = 48.0
 margin_right = 832.0
-margin_bottom = 472.0
+margin_bottom = 432.0
 size_flags_vertical = 3
 custom_constants/vseparation = 16
 columns = 2
 
-[node name="Back" type="Label" parent="Margin/VBox"]
+[node name="Apply" type="Label" parent="Margin/VBox"]
+margin_top = 448.0
+margin_right = 832.0
+margin_bottom = 472.0
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = " Apply changes and exit"
+
+[node name="Discard" type="Label" parent="Margin/VBox"]
 margin_top = 488.0
 margin_right = 832.0
 margin_bottom = 512.0
@@ -57,4 +68,5 @@ mouse_filter = 0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 3 )
-text = " Back to title screen"
+custom_colors/font_color = Color( 1, 0.501961, 0.501961, 1 )
+text = " Discard changes and exit"

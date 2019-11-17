@@ -24,10 +24,12 @@ func update_save_data():
         if not sd.settings.has(key):
             sd.settings[key] = base_settings[key]
     save_game()
+
 func init_save_data():
     sd = base_data
     sd.settings = base_settings
     save_game()
+
 func load_game():
     # Load saved game data
     var save_file = File.new()
@@ -37,6 +39,7 @@ func load_game():
     save_file.open(save_path, File.READ)
     sd = parse_json(save_file.get_as_text())
     return sd.has('ver')
+
 func save_game():
     # Save game data
     sd.ver = SAVE_VER
@@ -46,7 +49,10 @@ func save_game():
     save_file.close()
 
 func title():
-    Main.switch_to("res://scenes/Title.tscn")
+    if debug_mode:
+        get_tree().quit()
+    else:
+        Main.switch_to("res://scenes/Title.tscn")
 
 func start_new():
     Main.switch_to(LL.first_level)
@@ -60,6 +66,11 @@ func settings():
 func quit():
     get_tree().quit()
 
+func apply_settings():
+    # colorblind: nothing to be done (see ColorAddSprite.gd)
+    # touchinput: nothing to be done (see Player.gd)
+    pass
+
 func _init():
     OS.set_low_processor_usage_mode(true)
     if load_game():
@@ -67,6 +78,7 @@ func _init():
         if sd.ver < SAVE_VER:
             update_save_data()
             print("Updated save data to version ", SAVE_VER)
+        apply_settings()
     else:
         init_save_data()
 

@@ -15,6 +15,7 @@ func set_color(col):
     update_sprite()
 
 func _ready():
+    visible = Main.sd.settings.colorblind
     update_sprite()
 
 # warning-ignore:unused_argument

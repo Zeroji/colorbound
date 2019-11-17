@@ -3,9 +3,9 @@ extends Control
 class_name Settings
 
 const SETTINGS = [
-    {key="colorblind", label="Color mode",
+    {key="colorblind", label="Colorblind mode",
      values=[["ON", true], ["OFF", false]]},
-    {key="touchinput", label="Size of touch input buttons",
+    {key="touchinput", label="Touch input size",
      values=[["2X", 2], ["1X", 1], ["FULL", 3], ["OFF", 0]]},
 ]
 
@@ -13,6 +13,13 @@ var opt_indexes = {}
 
 const color_idle = Color("#999999")
 const color_focus = Color("#eeeeee")
+
+func apply_new_settings():
+    for st in SETTINGS:
+        var value = st.values[opt_indexes[st.key]][1]
+        Main.sd.settings[st.key] = value
+    Main.apply_settings()
+    Main.save_game()
 
 func connect_label(node: Control, key, group):
     if not node.is_connected("focus_entered", self, "_on_enter_focus"):
@@ -79,16 +86,21 @@ func _ready():
             option.connect("gui_input", self, "_on_option_click", [options, idx, st.key, opt[1]])
             idx += 1
         connect_label(label, st.key, options)
-    connect_label($Margin/VBox/Back, null, null)
-    $Margin/VBox/Back.grab_focus()
+    connect_label($Margin/VBox/Apply, null, null)
+    connect_label($Margin/VBox/Discard, null, null)
+    $Margin/VBox/Apply.grab_focus()
 
 func _on_enter_focus(node: Label, group):
     node.text = '>' + node.text.substr(1, 99)
     node.add_color_override("font_color", color_focus)
+    if node.name == 'Discard':
+        node.add_color_override("font_color", Color("#ff2020"))
 
 func _on_exit_focus(node: Label, group):
     node.text = ' ' + node.text.substr(1, 99)
     node.add_color_override("font_color", color_idle)
+    if node.name == 'Discard':
+        node.add_color_override("font_color", Color("#ff8080"))
 
 func _on_gui_input(event: InputEvent, node: Label, key, group):
     if group != null:
@@ -96,8 +108,11 @@ func _on_gui_input(event: InputEvent, node: Label, key, group):
             option_next(key, group)
         if event.is_action_pressed("ui_left"):
             option_next(key, group, -1)
-    elif node.name == 'Back':
-        if event.is_action_pressed("ui_accept") or (event is InputEventMouseButton and event.button_index == BUTTON_LEFT):
+    elif event.is_action_pressed("ui_accept") or (event is InputEventMouseButton and event.button_index == BUTTON_LEFT):
+        if node.name == 'Apply':
+            apply_new_settings()
+            Main.title()
+        elif node.name == 'Discard':
             Main.title()
 
 func _on_option_click(event: InputEvent, options, index, key, value):
