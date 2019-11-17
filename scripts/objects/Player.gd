@@ -13,6 +13,10 @@ var jump: float = 0
 export (CS.Colors) var color = CS.Colors.white setget set_color
 export (bool) var mobile = true
 
+func _ready():
+    for node in $TouchInput2.get_children():
+        node.visible = true
+
 func _physics_process(delta):
     var snap = Vector2(0, 20)
     jump = max(0, jump-delta)

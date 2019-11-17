@@ -45,11 +45,20 @@ func save_game():
     save_file.store_line(to_json(sd))
     save_file.close()
 
+func title():
+    Main.switch_to("res://scenes/Title.tscn")
+
 func start_new():
     Main.switch_to(LL.first_level)
 
 func resume():
     Main.switch_to(LL.get(sd.checkpoint.level), sd.checkpoint)
+
+func settings():
+    Main.switch_to("res://scenes/Settings.tscn")
+
+func quit():
+    get_tree().quit()
 
 func _init():
     OS.set_low_processor_usage_mode(true)

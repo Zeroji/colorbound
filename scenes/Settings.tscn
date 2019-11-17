@@ -54,6 +54,7 @@ margin_right = 832.0
 margin_bottom = 512.0
 focus_mode = 2
 mouse_filter = 0
+mouse_default_cursor_shape = 2
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 3 )
 text = " Back to title screen"

@@ -5,7 +5,7 @@ class_name Settings
 const SETTINGS = [
     {key="colorblind", label="Color mode",
      values=[["ON", true], ["OFF", false]]},
-    {key="touchinput", label="Touch size",
+    {key="touchinput", label="Size of touch input buttons",
      values=[["2X", 2], ["1X", 1], ["FULL", 3], ["OFF", 0]]},
 ]
 
@@ -50,6 +50,7 @@ func _ready():
         var label = Label.new()
         grid.add_child(label)
         label.text = ' ' + st.label
+        label.autowrap = true
         label.add_font_override("font", font)
         label.focus_mode = Control.FOCUS_ALL
         label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -74,6 +75,7 @@ func _ready():
             option.text = lbl
             option.add_font_override("font", font)
             option.mouse_filter = Control.MOUSE_FILTER_STOP
+            option.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
             option.connect("gui_input", self, "_on_option_click", [options, idx, st.key, opt[1]])
             idx += 1
         connect_label(label, st.key, options)
@@ -94,6 +96,9 @@ func _on_gui_input(event: InputEvent, node: Label, key, group):
             option_next(key, group)
         if event.is_action_pressed("ui_left"):
             option_next(key, group, -1)
+    elif node.name == 'Back':
+        if event.is_action_pressed("ui_accept") or (event is InputEventMouseButton and event.button_index == BUTTON_LEFT):
+            Main.title()
 
 func _on_option_click(event: InputEvent, options, index, key, value):
     if event is InputEventMouseButton:

@@ -81,9 +81,9 @@ texture = SubResource( 3 )
 color = 0
 style = 0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="TouchInput2" type="CanvasLayer" parent="."]
 
-[node name="ButtonLeft" type="TouchScreenButton" parent="CanvasLayer"]
+[node name="ButtonLeft" type="TouchScreenButton" parent="TouchInput2"]
 visible = false
 modulate = Color( 1, 1, 1, 0.501961 )
 position = Vector2( 0, 512 )
@@ -94,7 +94,7 @@ passby_press = true
 action = "left"
 visibility_mode = 1
 
-[node name="ButtonRight" type="TouchScreenButton" parent="CanvasLayer"]
+[node name="ButtonRight" type="TouchScreenButton" parent="TouchInput2"]
 visible = false
 modulate = Color( 1, 1, 1, 0.501961 )
 position = Vector2( 128, 512 )
@@ -105,7 +105,7 @@ passby_press = true
 action = "right"
 visibility_mode = 1
 
-[node name="ButtonJump" type="TouchScreenButton" parent="CanvasLayer"]
+[node name="ButtonJump" type="TouchScreenButton" parent="TouchInput2"]
 visible = false
 modulate = Color( 1, 1, 1, 0.501961 )
 position = Vector2( 896, 512 )
