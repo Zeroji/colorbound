@@ -5,7 +5,7 @@ class_name TitleScreen
 func _ready():
     if Main.sd.has("checkpoint"):
         $Map/Buttons/Continue.position.y += 32
-        $Map/Buttons/Continue/LevelName.text = Main.sd.checkpoint.level
+        $Map/Buttons/Continue/LevelName.text = "Level %s" % LL.get_display_index(Main.sd.checkpoint.level)
 
 func button_quit(body):
     if body is Player:

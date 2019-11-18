@@ -48,6 +48,8 @@ func _ready():
     for elevator in $Elevators.get_children():
         elevator.connect("activated", self, "_on_elevator_activated")
         elevator.connect("finished", self, "_on_elevator_finished")
+    $CL/Menu/Container/Panel/VBox/LevelCount.text = "Level %s" % LL.get_display_index(name)
+    $CL/Menu/Container/Panel/VBox/LevelName.text = LL.get_display_name(name)
     for label in $CL/Menu/Container/Panel/VBox.get_children():
         if not label.name.begins_with('Level'):
             connect_label(label)
