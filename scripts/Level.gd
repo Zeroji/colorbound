@@ -23,6 +23,14 @@ func resume(checkpoint_name, color_name):
     checkpoint.color = CS.Colors[color_name]
     load_checkpoint(checkpoint)
 
+func connect_label(node: Label):
+    if not node.is_connected("focus_entered", self, "_on_menu_focus_entered"):
+        node.connect("focus_entered", self, "_on_menu_focus_entered", [node])
+    if not node.is_connected("focus_exited", self, "_on_menu_focus_exited"):
+        node.connect("focus_exited", self, "_on_menu_focus_exited", [node])
+    if not node.is_connected("gui_input", self, "_on_menu_input_event"):
+        node.connect("gui_input", self, "_on_menu_input_event", [node])
+
 func _ready():
     connect("checkpoint", Main, "level_checkpoint")
     connect("completed", Main, "level_completed")
@@ -40,6 +48,10 @@ func _ready():
     for elevator in $Elevators.get_children():
         elevator.connect("activated", self, "_on_elevator_activated")
         elevator.connect("finished", self, "_on_elevator_finished")
+    for label in $CL/Menu/Container/Panel/VBox.get_children():
+        if not label.name.begins_with('Level'):
+            connect_label(label)
+    $CL/Menu.visible = false
 
 # When player steps in elevator, lock them in
 func _on_elevator_activated(elevator):
@@ -49,3 +61,36 @@ func _on_elevator_activated(elevator):
 # When elevator doors close, transition to next level
 func _on_elevator_finished():
     emit_signal("completed")
+
+func _input(event):
+    if event.is_action_pressed("ui_menu"):
+        get_tree().paused = true
+        $CL/Menu.visible = true
+        $CL/Menu/Container/Panel/VBox/Resume.grab_focus()
+        get_tree().set_input_as_handled()
+
+func _on_menu_focus_entered(node: Label):
+    node.text = '>' + node.text + '<'
+
+func _on_menu_focus_exited(node: Label):
+    node.text = node.text.substr(1, len(node.text)-2)
+
+func _on_menu_input_event(event: InputEvent, node: Label):
+    if event.is_action_pressed("ui_menu"):
+        $CL/Menu.visible = false
+        get_tree().paused = false
+    if event.is_action_pressed("ui_accept") or (event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT):
+        get_tree().paused = false
+        get_tree().set_input_as_handled()
+        match node.name:
+            "Resume":
+                $CL/Menu.visible = false
+            "Restart":
+                $CL/Menu.visible = false
+                # restart level
+            "Settings":
+                Main.settings()
+            "Title":
+                Main.title()
+            "Quit":
+                Main.quit()
