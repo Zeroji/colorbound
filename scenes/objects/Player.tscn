@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scripts/objects/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/character/blue.png" type="Texture" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://assets/ui/touch_right_pressed.png" type="Texture" id=14]
 [ext_resource path="res://assets/ui/touch_jump.png" type="Texture" id=15]
 [ext_resource path="res://assets/ui/touch_jump_pressed.png" type="Texture" id=16]
+[ext_resource path="res://assets/ui/touch_menu.png" type="Texture" id=17]
+[ext_resource path="res://assets/ui/touch_menu_pressed.png" type="Texture" id=18]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -63,14 +65,17 @@ resource_local_to_scene = true
 atlas = ExtResource( 10 )
 region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 128, 320 )
-
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 128, 320 )
+extents = Vector2( 128, 256 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 128, 256 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 128, 320 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 256, 64 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -123,6 +128,17 @@ passby_press = true
 action = "jump"
 visibility_mode = 1
 
+[node name="ButtonMenu" type="TouchScreenButton" parent="TouchInput2"]
+pause_mode = 2
+visible = false
+modulate = Color( 1, 1, 1, 0.501961 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 17 )
+pressed = ExtResource( 18 )
+passby_press = true
+action = "ui_menu"
+visibility_mode = 1
+
 [node name="TouchInput1" type="CanvasLayer" parent="."]
 
 [node name="ButtonLeft" type="TouchScreenButton" parent="TouchInput1"]
@@ -155,13 +171,23 @@ passby_press = true
 action = "jump"
 visibility_mode = 1
 
+[node name="ButtonMenu" type="TouchScreenButton" parent="TouchInput1"]
+pause_mode = 2
+visible = false
+modulate = Color( 1, 1, 1, 0.501961 )
+normal = ExtResource( 17 )
+pressed = ExtResource( 18 )
+passby_press = true
+action = "ui_menu"
+visibility_mode = 1
+
 [node name="TouchInput3" type="CanvasLayer" parent="."]
 
 [node name="ButtonLeft" type="TouchScreenButton" parent="TouchInput3"]
 visible = false
 modulate = Color( 1, 1, 1, 0.501961 )
-position = Vector2( 128, 320 )
-shape = SubResource( 5 )
+position = Vector2( 128, 384 )
+shape = SubResource( 4 )
 shape_centered = false
 passby_press = true
 action = "left"
@@ -170,8 +196,8 @@ visibility_mode = 1
 [node name="ButtonRight" type="TouchScreenButton" parent="TouchInput3"]
 visible = false
 modulate = Color( 1, 1, 1, 0.501961 )
-position = Vector2( 384, 320 )
-shape = SubResource( 4 )
+position = Vector2( 384, 384 )
+shape = SubResource( 5 )
 passby_press = true
 action = "right"
 visibility_mode = 1
@@ -183,4 +209,14 @@ position = Vector2( 896, 320 )
 shape = SubResource( 6 )
 passby_press = true
 action = "jump"
+visibility_mode = 1
+
+[node name="ButtonMenu" type="TouchScreenButton" parent="TouchInput3"]
+pause_mode = 2
+visible = false
+modulate = Color( 1, 1, 1, 0.501961 )
+position = Vector2( 256, 64 )
+shape = SubResource( 7 )
+passby_press = true
+action = "ui_menu"
 visibility_mode = 1

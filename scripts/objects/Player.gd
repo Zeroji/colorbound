@@ -17,6 +17,9 @@ func _ready():
     var touch_node = get_node("TouchInput%d" % Main.sd.settings.touchinput)
     if touch_node != null:
         for node in touch_node.get_children():
+            # Hide menu on title screen
+            if node.name == 'ButtonMenu' and Main.level_name == 'Title':
+                continue
             node.visible = true
 
 func _physics_process(delta):
