@@ -51,7 +51,10 @@ func _ready():
     for label in $CL/Menu/Container/Panel/VBox.get_children():
         if not label.name.begins_with('Level'):
             connect_label(label)
-    $CL/Menu.visible = false
+    if OS.has_touchscreen_ui_hint():
+        $CL/Menu.set_scale(Vector2(2, 2))
+        $CL/Menu.margin_right = 0
+        $CL/Menu.margin_bottom = 0
 
 # When player steps in elevator, lock them in
 func _on_elevator_activated(elevator):
@@ -87,7 +90,9 @@ func _on_menu_input_event(event: InputEvent, node: Label):
                 $CL/Menu.visible = false
             "Restart":
                 $CL/Menu.visible = false
-                # restart level
+                # TODO: add code to reset moving elements
+                $Player.target_velx = 0
+                load_checkpoint($SpawnPoint)
             "Settings":
                 Main.settings()
             "Title":
