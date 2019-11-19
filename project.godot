@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Level.gd"
 }, {
-"base": "StaticBody2D",
+"base": "PhysicsBody2D",
 "class": "Platform",
 "language": "GDScript",
 "path": "res://scripts/objects/Platform.gd"
