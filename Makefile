@@ -19,15 +19,15 @@ linux: $(OUT)/$(NAME)_linux.zip
 $(OUT)/$(NAME)_html.zip: $(SCENES)
 	@mkdir -p $(OUT)/html
 	$(GODOT) --path $(PROJECT) --export "HTML5" $(OUT)/html/index.html
-	zip -r $@ $(OUT)/html/index.*
+	zip -jr $@ $(OUT)/html/index.*
 
 $(OUT)/$(NAME)_win.zip: $(SCENES)
 	$(GODOT) --path $(PROJECT) --export "Windows Desktop" $(OUT)/$(NAME).exe
-	zip -r $@ $(OUT)/$(NAME).exe $(OUT)/$(NAME).pck
+	zip -jr $@ $(OUT)/$(NAME).exe $(OUT)/$(NAME).pck
 
 $(OUT)/$(NAME)_linux.zip: $(SCENES)
 	$(GODOT) --path $(PROJECT) --export "Linux/X11" $(OUT)/$(NAME).x86_64
-	zip -r $@ $(OUT)/$(NAME).x86_64 $(OUT)/$(NAME).pck
+	zip -jr $@ $(OUT)/$(NAME).x86_64 $(OUT)/$(NAME).pck
 
 publish_html: html
 	$(BUTLER) push $(OUT)/$(NAME)_html.zip $(ITCH_URL):html
