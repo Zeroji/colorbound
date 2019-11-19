@@ -1,5 +1,5 @@
 tool
-extends StaticBody2D
+extends PhysicsBody2D
 
 class_name Platform
 

@@ -14,6 +14,7 @@ export (CS.Colors) var color = CS.Colors.white setget set_color
 export (bool) var mobile = true
 
 func _ready():
+    set_collision_layer_bit(CS.layer(color), true)
     var touch_node = get_node("TouchInput%d" % Main.sd.settings.touchinput)
     if touch_node != null:
         for node in touch_node.get_children():
