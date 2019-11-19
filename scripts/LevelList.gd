@@ -1,10 +1,10 @@
 extends Node
 
-const SCENE_PATH = "res://scenes/levels/%s.tscn"
+const SCENE_PATH = "res://scenes/levels/%s/%s.tscn"
 const TITLE_PATH = "res://scenes/Title.tscn"
 
 const Levels = [{
-        name = "Introduction", levels = [
+        name = "Introduction", dir = '.', levels = [
             {key = 'Intro_01', label = "Red VS Blue"},
             {key = 'Intro_02', label = "Ready Player Yellow"},
             {key = 'Intro_03', label = "Head first in the wall"},
@@ -14,16 +14,17 @@ const Levels = [{
             {key = 'Intro_07', label = "Final course"},
         ]
     }, {
-        name = "Showcase", levels = [
+        name = "Showcase", dir = '.', levels = [
             {key = 'Showcase', label = "Game Off 2019 showcase"},
         ]
     }
 ]
 
-const first_level = SCENE_PATH % Levels[0].levels[0].key
+const first_level = SCENE_PATH % [Levels[0].dir, Levels[0].levels[0].key]
 
 func get(level_name):
-    return SCENE_PATH % level_name
+    var idx = get_indexes(level_name)
+    return SCENE_PATH % [Levels[idx[0]].dir, level_name]
 
 func get_indexes(level_name):
     for g_index in range(len(Levels)):
@@ -55,4 +56,4 @@ func next(level_name):
         g_index += 1
     if g_index >= len(Levels):
         return TITLE_PATH
-    return SCENE_PATH % Levels[g_index].levels[l_index].key
+    return SCENE_PATH % [Levels[g_index].dir, Levels[g_index].levels[l_index].key]
