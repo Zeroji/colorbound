@@ -27,10 +27,13 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -48, 0, 0, 0, 0, 0, 48, 0 )
 }
 
-[node name="Platform" type="KinematicBody2D"]
+[node name="MovingPlatform" type="KinematicBody2D"]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="NinePatch" type="NinePatchRect" parent="."]
 margin_left = -32.0
@@ -71,3 +74,4 @@ align = 1
 curve = SubResource( 5 )
 
 [node name="Follow" type="PathFollow2D" parent="Path"]
+position = Vector2( -48, 0 )

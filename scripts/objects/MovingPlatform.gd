@@ -3,6 +3,10 @@ extends Platform
 
 export var seconds: float = 2
 var acc: float = PI # Initialized so cos(acc) starts at -1
+var origin: Vector2
+
+func _ready():
+    origin = transform.origin
 
 func _physics_process(delta):
     if Engine.editor_hint:
@@ -11,7 +15,7 @@ func _physics_process(delta):
     acc = fmod(acc, PI * 2.0)
     var pos = (cos(acc)+1)/2 # Map cos [-1, 1] to [0, 1]
     $Path/Follow.unit_offset = max(0.001, min(0.999, pos))
-    transform.origin = $Path/Follow.position
+    transform.origin = origin + $Path/Follow.position
 
 func _draw():
     if not Engine.editor_hint:
