@@ -68,7 +68,10 @@ func settings():
     Main.switch_to("res://scenes/Settings.tscn")
 
 func quit():
-    get_tree().quit()
+    save_game()
+    Main.switch_to("res://scenes/Quit.tscn")
+    get_tree().call_deferred("set_pause", true)
+    get_tree().call_deferred("quit")
 
 func apply_settings():
     # colorblind: nothing to be done (see ColorAddSprite.gd)
