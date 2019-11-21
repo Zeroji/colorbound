@@ -1,6 +1,6 @@
 extends Node
 
-const SCENE_PATH = "res://scenes/levels/%s/%s.tscn"
+const SCENE_PATH = "res://scenes/levels/%s.tscn"
 const TITLE_PATH = "res://scenes/Title.tscn"
 
 const Levels = [{
@@ -20,11 +20,17 @@ const Levels = [{
     }
 ]
 
-const first_level = SCENE_PATH % [Levels[0].dir, Levels[0].levels[0].key]
+func build_path(g_index, l_index):
+    var dir = Levels[g_index].dir
+    var name = Levels[g_index].levels[l_index].key
+    var full_name = name if dir == "." else dir + "/" + name
+    return SCENE_PATH % full_name
+
+var first_level = build_path(0, 0)
 
 func get(level_name):
     var idx = get_indexes(level_name)
-    return SCENE_PATH % [Levels[idx[0]].dir, level_name]
+    return build_path(idx[0], idx[1])
 
 func get_indexes(level_name):
     for g_index in range(len(Levels)):
@@ -56,4 +62,4 @@ func next(level_name):
         g_index += 1
     if g_index >= len(Levels):
         return TITLE_PATH
-    return SCENE_PATH % [Levels[g_index].dir, Levels[g_index].levels[l_index].key]
+    return build_path(g_index, l_index)
