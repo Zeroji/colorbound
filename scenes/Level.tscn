@@ -55,8 +55,20 @@ position = Vector2( 64, 576 )
 color = 0
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-visible = false
 z_index = 1
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+limit_left = 0
+limit_top = 0
+limit_right = 1024
+limit_bottom = 640
+drag_margin_left = 0.4
+drag_margin_top = 0.25
+drag_margin_right = 0.4
+drag_margin_bottom = 0.25
+editor_draw_limits = true
+editor_draw_drag_margin = true
 
 [node name="Platforms" type="Node2D" parent="."]
 
