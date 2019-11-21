@@ -2,18 +2,22 @@ tool
 extends Platform
 
 export var seconds: float = 2
-var acc: float = PI # Initialized so cos(acc) starts at -1
+export var loop: bool = true
+var acc: float = 0
 var origin: Vector2
+var max_acc: float
 
 func _ready():
+    ._ready()
     origin = transform.origin
+    max_acc = PI * 2 if loop else PI
 
 func _physics_process(delta):
     if Engine.editor_hint:
         return
-    acc += delta / seconds * PI * 2.0
-    acc = fmod(acc, PI * 2.0)
-    var pos = (cos(acc)+1)/2 # Map cos [-1, 1] to [0, 1]
+    acc += delta / seconds * max_acc
+    acc = fmod(acc, max_acc)
+    var pos = (cos(acc-PI)+1)/2 # Map cos [-1, 1] to [0, 1]
     $Path/Follow.unit_offset = max(0.001, min(0.999, pos))
     transform.origin = origin + $Path/Follow.position
 
