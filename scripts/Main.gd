@@ -68,6 +68,9 @@ func settings():
     Main.switch_to("res://scenes/Settings.tscn")
 
 func quit():
+    if debug_mode:
+        get_tree().quit()
+        return
     save_game()
     Main.switch_to("res://scenes/Quit.tscn")
     get_tree().call_deferred("set_pause", true)

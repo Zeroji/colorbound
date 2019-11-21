@@ -14,6 +14,11 @@ const Levels = [{
             {key = 'Intro_07', label = "Final course"},
         ]
     }, {
+        name = "Moves", dir = 'moves', levels = [
+            {key = 'Moves_01', label = "Zoooooooom"},
+            {key = 'Moves_05', label = "Rainbow Vomit Road"},
+        ]
+    }, {
         name = "Showcase", dir = '.', levels = [
             {key = 'Showcase', label = "Game Off 2019 showcase"},
         ]
@@ -38,10 +43,12 @@ func get_indexes(level_name):
         for l_index in range(len(levels)):
             if levels[l_index].key == level_name:
                 return [g_index, l_index]
-    return [-1, 0]
+    return [-1, -1]
 
 func get_display_name(level_name):
     var idx = get_indexes(level_name)
+    if idx[0] == -1:
+        return '[ERR: UNKNOWN LEVEL]'
     return Levels[idx[0]].levels[idx[1]].label
 
 func get_display_index(level_name):

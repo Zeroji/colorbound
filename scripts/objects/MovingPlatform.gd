@@ -3,6 +3,7 @@ extends Platform
 
 export var seconds: float = 2
 export var loop: bool = true
+export var initial_pi: float = 0
 var acc: float = 0
 var origin: Vector2
 var max_acc: float
@@ -10,6 +11,7 @@ var max_acc: float
 func _ready():
     ._ready()
     origin = transform.origin
+    acc = initial_pi * PI
     max_acc = PI * 2 if loop else PI
 
 func _physics_process(delta):
