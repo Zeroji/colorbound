@@ -18,23 +18,17 @@ color = 3
 
 [node name="Platform1" parent="Platforms" index="0" instance=ExtResource( 2 )]
 position = Vector2( 352, 320 )
-color = 1
-length = 64
 
 [node name="Platform2" parent="Platforms" index="1" instance=ExtResource( 2 )]
 position = Vector2( 736, 288 )
 color = 2
-length = 64
 
 [node name="Platform4" parent="Platforms" index="2" instance=ExtResource( 2 )]
 position = Vector2( 736, 368 )
 color = 2
-length = 64
 
 [node name="Platform3" parent="Platforms" index="3" instance=ExtResource( 2 )]
 position = Vector2( 576, 288 )
-color = 1
-length = 64
 
 [node name="Switcher1" parent="Switchers" index="0" instance=ExtResource( 3 )]
 position = Vector2( 160, 416 )
@@ -131,8 +125,4 @@ margin_bottom = 496.0
 text = "You collide with objects of the same color"
 align = 1
 valign = 1
-[connection signal="button_on" from="Doors/Door/Button" to="Doors/Door" method="_on_Button_button_on"]
-[connection signal="button_on" from="Doors/Door3/Button" to="Doors/Door3" method="_on_Button_button_on"]
-[connection signal="button_on" from="Doors/Door2/Button" to="Doors/Door2" method="_on_Button_button_on"]
-[connection signal="button_on" from="Doors/Door4/Button" to="Doors/Door4" method="_on_Button_button_on"]
 [connection signal="button_on" from="Doors/Door4/Button2" to="Doors/Door4" method="_on_Button_button_on"]
