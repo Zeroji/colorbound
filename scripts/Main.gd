@@ -64,6 +64,15 @@ func start_new():
 func resume():
     Main.switch_to(LL.get(sd.checkpoint.level), sd.checkpoint)
 
+func levels():
+    Main.switch_to("res://scenes/LevelSelect.tscn")
+
+func play_level(level_name):
+    if debug_mode:
+        print('[DBG] Switching to ', level_name)
+        return
+    Main.switch_to(LL.get(level_name))
+
 func settings():
     Main.switch_to("res://scenes/Settings.tscn")
 
@@ -124,8 +133,11 @@ func switch_to(scene_path, checkpoint=null):
     call_deferred("_deferred_switch_to", scene_path, checkpoint)
 
 func _deferred_switch_to(scene_path, checkpoint=null):
-    scene.free()
     var s = ResourceLoader.load(scene_path)
+    if s == null:
+        push_error("Failed to load scene: %s" % scene_path)
+        return
+    scene.free()
     scene = s.instance()
     level_name = scene.filename.substr(scene.filename.find_last("/")+1, 99).replace('.tscn', '')
     get_tree().root.add_child(scene)
