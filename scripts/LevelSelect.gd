@@ -94,3 +94,7 @@ func on_button_down(level_name):
 func _input(event: InputEvent):
     if event.is_action_pressed("ui_menu"):
         Main.title()
+
+func _on_XButton_gui_input(event):
+    if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
+        Main.title()

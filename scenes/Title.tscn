@@ -76,6 +76,27 @@ Built with Godot Engine"
 align = 1
 valign = 1
 
+[node name="NewGameButton" type="TextureButton" parent="CanvasLayer"]
+margin_left = 144.0
+margin_top = 272.0
+margin_right = 304.0
+margin_bottom = 336.0
+mouse_default_cursor_shape = 2
+
+[node name="ContinueButton" type="TextureButton" parent="CanvasLayer"]
+margin_left = 432.0
+margin_top = 240.0
+margin_right = 592.0
+margin_bottom = 304.0
+mouse_default_cursor_shape = 2
+
+[node name="LevelButton" type="TextureButton" parent="CanvasLayer"]
+margin_left = 720.0
+margin_top = 272.0
+margin_right = 880.0
+margin_bottom = 336.0
+mouse_default_cursor_shape = 2
+
 [node name="SettingsButton" type="TextureButton" parent="CanvasLayer"]
 margin_left = 176.0
 margin_top = 528.0
@@ -143,6 +164,9 @@ text = "Levels"
 [node name="Quit" parent="Map/Buttons" instance=ExtResource( 7 )]
 position = Vector2( 768, 560 )
 text = "Quit"
+[connection signal="pressed" from="CanvasLayer/NewGameButton" to="." method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/ContinueButton" to="." method="_on_ContinueButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelButton" to="." method="_on_LevelButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/SettingsButton" to="." method="_on_SettingsButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="body_entered" from="Map/Buttons/Continue" to="." method="button_continue"]

@@ -35,11 +35,35 @@ margin_top = 64.0
 margin_right = 928.0
 margin_bottom = 576.0
 
-[node name="Select" type="Label" parent="Margin/VBox"]
+[node name="HBox" type="HBoxContainer" parent="Margin/VBox"]
 margin_right = 832.0
 margin_bottom = 32.0
+
+[node name="XPad" type="Label" parent="Margin/VBox/HBox"]
+margin_right = 32.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 0 )
+text = "<"
+align = 1
+
+[node name="Select" type="Label" parent="Margin/VBox/HBox"]
+margin_left = 224.0
+margin_right = 608.0
+margin_bottom = 32.0
+size_flags_horizontal = 6
 custom_fonts/font = SubResource( 1 )
 text = "SELECT LEVEL"
+align = 1
+
+[node name="XButton" type="Label" parent="Margin/VBox/HBox"]
+margin_left = 800.0
+margin_right = 832.0
+margin_bottom = 32.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 1 )
+text = "X"
 align = 1
 
 [node name="Levels" type="VBoxContainer" parent="Margin/VBox"]
@@ -70,3 +94,4 @@ align = 1
 
 [node name="Lines" type="Node2D" parent="."]
 z_index = -1
+[connection signal="gui_input" from="Margin/VBox/HBox/XButton" to="." method="_on_XButton_gui_input"]
