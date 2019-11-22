@@ -125,4 +125,3 @@ margin_bottom = 496.0
 text = "You collide with objects of the same color"
 align = 1
 valign = 1
-[connection signal="button_on" from="Doors/Door4/Button2" to="Doors/Door4" method="_on_Button_button_on"]

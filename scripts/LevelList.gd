@@ -17,6 +17,7 @@ var Levels = [{
     }, {
         name = "Moves", dir = 'moves', levels = [
             {key = 'Moves_01', label = "Zoooooooom", req=['Intro_01']},
+            {key = 'Moves_02', label = "Trigonometric"},
             {key = 'Moves_05', label = "Rainbow Vomit Road"},
         ]
     }, {
@@ -33,7 +34,6 @@ func _init():
             if not Levels[g_index].levels[l_index].has('req'):
                 Levels[g_index].levels[l_index].req = [prev] if prev else []
             prev = Levels[g_index].levels[l_index].key
-    print(Levels)
 
 func build_path(g_index, l_index):
     var dir = Levels[g_index].dir
