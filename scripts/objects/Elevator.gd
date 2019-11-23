@@ -23,6 +23,7 @@ func update_collision_bits():
 func update_sprite():
     $DoorLeft.texture.region.position.x = CS.id(color) * TEXTURE_SIZE
     $DoorRight.texture.region.position.x = CS.id(color) * TEXTURE_SIZE
+    $ColorAddSprite.color = color
 
 func _ready():
     if not Engine.editor_hint:

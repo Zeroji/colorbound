@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/objects/Elevator.gd" type="Script" id=1]
 [ext_resource path="res://assets/elevator_frame.png" type="Texture" id=2]
 [ext_resource path="res://assets/elevator_mask.png" type="Texture" id=3]
 [ext_resource path="res://assets/elevators.png" type="Texture" id=4]
+[ext_resource path="res://scenes/objects/ColorAddSprite.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/coloradd.png" type="Texture" id=6]
 
 [sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/elevators.png-2f0f68b3a482962d89e5bad9517b74bc.stex"
@@ -17,6 +19,11 @@ region = Rect2( 64, 0, 64, 64 )
 resource_local_to_scene = true
 atlas = ExtResource( 4 )
 region = Rect2( 64, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=8]
+resource_local_to_scene = true
+atlas = ExtResource( 6 )
+region = Rect2( 16, 0, 16, 16 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "open"
@@ -44,6 +51,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 1, 0 ), Vector2( 17, 0 ), Vector2( 19, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ColorAddSprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 1.2, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -73,6 +92,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 19, 0 ), Vector2( 15, 0 ), Vector2( 0, 0 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("ColorAddSprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="CircleShape2D" id=6]
 radius = 128.0
@@ -82,9 +113,6 @@ extents = Vector2( 3, 3 )
 
 [node name="Elevator" type="Node2D"]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Frame" type="Sprite" parent="."]
 texture = ExtResource( 2 )
@@ -104,6 +132,12 @@ texture = SubResource( 2 )
 [node name="DoorRight" type="Sprite" parent="."]
 light_mask = 2
 texture = SubResource( 3 )
+
+[node name="ColorAddSprite" parent="." instance=ExtResource( 5 )]
+visible = true
+scale = Vector2( 2, 2 )
+texture = SubResource( 8 )
+color = 1
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 anims/open = SubResource( 4 )
