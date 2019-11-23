@@ -71,8 +71,8 @@ margin_bottom = -8.0
 text = "red"
 align = 1
 
-[node name="Path" type="Path2D" parent="."]
+[node name="BasePath" type="Path2D" parent="."]
 curve = SubResource( 5 )
 
-[node name="Follow" type="PathFollow2D" parent="Path"]
+[node name="Follow" type="PathFollow2D" parent="BasePath"]
 position = Vector2( -48, 0 )

@@ -1,139 +1,60 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/objects/MovingPlatform.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/coloradd.png" type="Texture" id=3]
-[ext_resource path="res://scenes/objects/Platform.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/objects/Switcher.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/objects/Elevator.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/objects/Platform.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/objects/Switcher.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/objects/Elevator.tscn" type="PackedScene" id=5]
 
-[sub_resource type="AtlasTexture" id=1]
-resource_local_to_scene = true
-atlas = ExtResource( 3 )
-region = Rect2( 16, 16, 16, 16 )
-
-[sub_resource type="RectangleShape2D" id=2]
-resource_local_to_scene = true
-extents = Vector2( 32, 4 )
-
-[sub_resource type="Curve2D" id=3]
+[sub_resource type="Curve2D" id=22]
 resource_local_to_scene = true
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 208, 208 )
 }
 
-[sub_resource type="AtlasTexture" id=4]
-resource_local_to_scene = true
-atlas = ExtResource( 3 )
-region = Rect2( 32, 16, 16, 16 )
-
-[sub_resource type="RectangleShape2D" id=5]
-resource_local_to_scene = true
-extents = Vector2( 32, 4 )
-
-[sub_resource type="Curve2D" id=6]
+[sub_resource type="Curve2D" id=23]
 resource_local_to_scene = true
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -256 )
 }
 
-[sub_resource type="AtlasTexture" id=7]
-resource_local_to_scene = true
-atlas = ExtResource( 3 )
-region = Rect2( 64, 16, 16, 16 )
-
-[sub_resource type="RectangleShape2D" id=8]
-resource_local_to_scene = true
-extents = Vector2( 32, 4 )
-
-[sub_resource type="Curve2D" id=9]
+[sub_resource type="Curve2D" id=24]
 resource_local_to_scene = true
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 256, -128 )
 }
 
-[sub_resource type="AtlasTexture" id=10]
-resource_local_to_scene = true
-atlas = ExtResource( 3 )
-region = Rect2( 80, 16, 16, 16 )
-
-[sub_resource type="RectangleShape2D" id=11]
-resource_local_to_scene = true
-extents = Vector2( 32, 4 )
-
-[sub_resource type="Curve2D" id=12]
+[sub_resource type="Curve2D" id=25]
 resource_local_to_scene = true
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 0, 0, 0, 0, 0, 128, -128, 0, 0, 0, 0, 0, 0 )
 }
 
-[sub_resource type="AtlasTexture" id=13]
-resource_local_to_scene = true
-atlas = ExtResource( 3 )
-region = Rect2( 48, 16, 16, 16 )
-
-[sub_resource type="RectangleShape2D" id=14]
-resource_local_to_scene = true
-extents = Vector2( 30, 4 )
-
-[sub_resource type="Curve2D" id=15]
+[sub_resource type="Curve2D" id=26]
 resource_local_to_scene = true
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -64 )
 }
 
-[sub_resource type="AtlasTexture" id=16]
-resource_local_to_scene = true
-atlas = ExtResource( 3 )
-region = Rect2( 96, 16, 16, 16 )
-
-[sub_resource type="RectangleShape2D" id=17]
-resource_local_to_scene = true
-extents = Vector2( 128, 4 )
-
-[sub_resource type="Curve2D" id=18]
+[sub_resource type="Curve2D" id=27]
 resource_local_to_scene = true
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 576, 128 )
 }
 
-[sub_resource type="AtlasTexture" id=19]
-resource_local_to_scene = true
-atlas = ExtResource( 3 )
-region = Rect2( 96, 16, 16, 16 )
-
-[sub_resource type="Curve2D" id=20]
+[sub_resource type="Curve2D" id=28]
 resource_local_to_scene = true
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 576, -128 )
 }
 
-[sub_resource type="AtlasTexture" id=21]
-resource_local_to_scene = true
-atlas = ExtResource( 3 )
-region = Rect2( 80, 16, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=22]
-resource_local_to_scene = true
-atlas = ExtResource( 3 )
-region = Rect2( 48, 16, 16, 16 )
-
-[sub_resource type="RectangleShape2D" id=23]
-resource_local_to_scene = true
-extents = Vector2( 32, 4 )
-
-[sub_resource type="Curve2D" id=24]
+[sub_resource type="Curve2D" id=29]
 resource_local_to_scene = true
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -64, 64, 0, 0, 0, 0, -96, 128, 0, 0, 0, 0, -96, 240, 0, 0, 0, 0, -64, 304, 0, 0, 0, 0, 0, 336, 0, 0, 0, 0, 96, 336, 0, 0, 0, 0, 160, 304, 0, 0, 0, 0, 224, 304, 0, 0, 0, 0, 256, 336, 0, 0, 0, 0, 256, 368, 0, 0, 0, 0, 128, 432, 0, 0, 0, 0, 80, 432, 0, 0, 0, 0, 48, 400, 0, 0, 0, 0, 48, 240, 0, 0, 0, 0, 80, 176, 0, 0, 0, 0, 144, 144, 0, 0, 0, 0, 208, 144 )
 }
 
-[sub_resource type="AtlasTexture" id=25]
-resource_local_to_scene = true
-atlas = ExtResource( 3 )
-region = Rect2( 32, 16, 16, 16 )
-
-[sub_resource type="Curve2D" id=26]
+[sub_resource type="Curve2D" id=21]
 resource_local_to_scene = true
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -256 )
@@ -155,68 +76,24 @@ limit_bottom = 1920
 position = Vector2( 304, 1552 )
 seconds = 4.0
 
-[node name="ColorAdd" parent="Platforms/MovingPlatform" index="1"]
-texture = SubResource( 1 )
-
-[node name="Hitbox" parent="Platforms/MovingPlatform" index="2"]
-shape = SubResource( 2 )
-
-[node name="Path" parent="Platforms/MovingPlatform" index="4"]
-curve = SubResource( 3 )
-
-[node name="Follow" parent="Platforms/MovingPlatform/Path" index="0"]
-position = Vector2( 0, 0 )
-rotation = 0.785398
+[node name="Path2D" type="Path2D" parent="Platforms/MovingPlatform" index="5"]
+curve = SubResource( 22 )
 
 [node name="MovingPlatform2" parent="Platforms" index="1" instance=ExtResource( 2 )]
 position = Vector2( 304, 1616 )
 color = 2
 seconds = 4.0
 
-[node name="NinePatch" parent="Platforms/MovingPlatform2" index="0"]
-region_rect = Rect2( 0, 16, 32, 8 )
-
-[node name="ColorAdd" parent="Platforms/MovingPlatform2" index="1"]
-texture = SubResource( 4 )
-color = 2
-
-[node name="Hitbox" parent="Platforms/MovingPlatform2" index="2"]
-shape = SubResource( 5 )
-
-[node name="Label" parent="Platforms/MovingPlatform2" index="3"]
-text = "yellow"
-
-[node name="Path" parent="Platforms/MovingPlatform2" index="4"]
-curve = SubResource( 6 )
-
-[node name="Follow" parent="Platforms/MovingPlatform2/Path" index="0"]
-position = Vector2( 0, 0 )
-rotation = -1.5708
+[node name="Path2D" type="Path2D" parent="Platforms/MovingPlatform2" index="5"]
+curve = SubResource( 23 )
 
 [node name="MovingPlatform4" parent="Platforms" index="2" instance=ExtResource( 2 )]
 position = Vector2( 304, 1424 )
 color = 4
 seconds = 4.0
 
-[node name="NinePatch" parent="Platforms/MovingPlatform4" index="0"]
-region_rect = Rect2( 0, 32, 32, 8 )
-
-[node name="ColorAdd" parent="Platforms/MovingPlatform4" index="1"]
-texture = SubResource( 7 )
-color = 4
-
-[node name="Hitbox" parent="Platforms/MovingPlatform4" index="2"]
-shape = SubResource( 8 )
-
-[node name="Label" parent="Platforms/MovingPlatform4" index="3"]
-text = "orange"
-
-[node name="Path" parent="Platforms/MovingPlatform4" index="4"]
-curve = SubResource( 9 )
-
-[node name="Follow" parent="Platforms/MovingPlatform4/Path" index="0"]
-position = Vector2( 0, 0 )
-rotation = -0.463648
+[node name="Path2D" type="Path2D" parent="Platforms/MovingPlatform4" index="5"]
+curve = SubResource( 24 )
 
 [node name="MovingPlatform5" parent="Platforms" index="3" instance=ExtResource( 2 )]
 position = Vector2( 304, 1584 )
@@ -225,51 +102,16 @@ seconds = 1.5
 loop = false
 initial_pi = 1.0
 
-[node name="NinePatch" parent="Platforms/MovingPlatform5" index="0"]
-region_rect = Rect2( 0, 40, 32, 8 )
-
-[node name="ColorAdd" parent="Platforms/MovingPlatform5" index="1"]
-texture = SubResource( 10 )
-color = 5
-
-[node name="Hitbox" parent="Platforms/MovingPlatform5" index="2"]
-shape = SubResource( 11 )
-
-[node name="Label" parent="Platforms/MovingPlatform5" index="3"]
-text = "green"
-
-[node name="Path" parent="Platforms/MovingPlatform5" index="4"]
-curve = SubResource( 12 )
-
-[node name="Follow" parent="Platforms/MovingPlatform5/Path" index="0"]
-position = Vector2( 0, 0 )
+[node name="Path2D" type="Path2D" parent="Platforms/MovingPlatform5" index="5"]
+curve = SubResource( 25 )
 
 [node name="MovingPlatform3" parent="Platforms" index="4" instance=ExtResource( 2 )]
 position = Vector2( 128, 1056 )
 color = 3
 length = 60
 
-[node name="NinePatch" parent="Platforms/MovingPlatform3" index="0"]
-margin_left = -30.0
-margin_right = 30.0
-region_rect = Rect2( 0, 24, 32, 8 )
-
-[node name="ColorAdd" parent="Platforms/MovingPlatform3" index="1"]
-texture = SubResource( 13 )
-color = 3
-
-[node name="Hitbox" parent="Platforms/MovingPlatform3" index="2"]
-shape = SubResource( 14 )
-
-[node name="Label" parent="Platforms/MovingPlatform3" index="3"]
-text = "blue"
-
-[node name="Path" parent="Platforms/MovingPlatform3" index="4"]
-curve = SubResource( 15 )
-
-[node name="Follow" parent="Platforms/MovingPlatform3/Path" index="0"]
-position = Vector2( 0, 0 )
-rotation = -1.5708
+[node name="Path2D" type="Path2D" parent="Platforms/MovingPlatform3" index="5"]
+curve = SubResource( 26 )
 
 [node name="MovingPlatform8" parent="Platforms" index="5" instance=ExtResource( 2 )]
 position = Vector2( 192, 1056 )
@@ -277,27 +119,8 @@ color = 3
 length = 60
 initial_pi = 0.5
 
-[node name="NinePatch" parent="Platforms/MovingPlatform8" index="0"]
-margin_left = -30.0
-margin_right = 30.0
-region_rect = Rect2( 0, 24, 32, 8 )
-
-[node name="ColorAdd" parent="Platforms/MovingPlatform8" index="1"]
-texture = SubResource( 13 )
-color = 3
-
-[node name="Hitbox" parent="Platforms/MovingPlatform8" index="2"]
-shape = SubResource( 14 )
-
-[node name="Label" parent="Platforms/MovingPlatform8" index="3"]
-text = "blue"
-
-[node name="Path" parent="Platforms/MovingPlatform8" index="4"]
-curve = SubResource( 15 )
-
-[node name="Follow" parent="Platforms/MovingPlatform8/Path" index="0"]
-position = Vector2( 0, 0 )
-rotation = -1.5708
+[node name="Path2D" type="Path2D" parent="Platforms/MovingPlatform8" index="5"]
+curve = SubResource( 26 )
 
 [node name="MovingPlatform9" parent="Platforms" index="6" instance=ExtResource( 2 )]
 position = Vector2( 256, 1056 )
@@ -305,27 +128,8 @@ color = 3
 length = 60
 initial_pi = 1.0
 
-[node name="NinePatch" parent="Platforms/MovingPlatform9" index="0"]
-margin_left = -30.0
-margin_right = 30.0
-region_rect = Rect2( 0, 24, 32, 8 )
-
-[node name="ColorAdd" parent="Platforms/MovingPlatform9" index="1"]
-texture = SubResource( 13 )
-color = 3
-
-[node name="Hitbox" parent="Platforms/MovingPlatform9" index="2"]
-shape = SubResource( 14 )
-
-[node name="Label" parent="Platforms/MovingPlatform9" index="3"]
-text = "blue"
-
-[node name="Path" parent="Platforms/MovingPlatform9" index="4"]
-curve = SubResource( 15 )
-
-[node name="Follow" parent="Platforms/MovingPlatform9/Path" index="0"]
-position = Vector2( 0, 0 )
-rotation = -1.5708
+[node name="Path2D" type="Path2D" parent="Platforms/MovingPlatform9" index="5"]
+curve = SubResource( 26 )
 
 [node name="MovingPlatform10" parent="Platforms" index="7" instance=ExtResource( 2 )]
 position = Vector2( 320, 1056 )
@@ -333,29 +137,10 @@ color = 3
 length = 60
 initial_pi = 1.5
 
-[node name="NinePatch" parent="Platforms/MovingPlatform10" index="0"]
-margin_left = -30.0
-margin_right = 30.0
-region_rect = Rect2( 0, 24, 32, 8 )
+[node name="Path2D" type="Path2D" parent="Platforms/MovingPlatform10" index="5"]
+curve = SubResource( 26 )
 
-[node name="ColorAdd" parent="Platforms/MovingPlatform10" index="1"]
-texture = SubResource( 13 )
-color = 3
-
-[node name="Hitbox" parent="Platforms/MovingPlatform10" index="2"]
-shape = SubResource( 14 )
-
-[node name="Label" parent="Platforms/MovingPlatform10" index="3"]
-text = "blue"
-
-[node name="Path" parent="Platforms/MovingPlatform10" index="4"]
-curve = SubResource( 15 )
-
-[node name="Follow" parent="Platforms/MovingPlatform10/Path" index="0"]
-position = Vector2( 0, 0 )
-rotation = -1.5708
-
-[node name="Platform" parent="Platforms" index="8" instance=ExtResource( 4 )]
+[node name="Platform" parent="Platforms" index="8" instance=ExtResource( 3 )]
 position = Vector2( 208, 320 )
 color = 5
 
@@ -364,27 +149,8 @@ position = Vector2( 224, 1120 )
 color = 6
 length = 256
 
-[node name="NinePatch" parent="Platforms/MovingPlatform6" index="0"]
-margin_left = -128.0
-margin_right = 128.0
-region_rect = Rect2( 0, 48, 32, 8 )
-
-[node name="ColorAdd" parent="Platforms/MovingPlatform6" index="1"]
-texture = SubResource( 16 )
-color = 6
-
-[node name="Hitbox" parent="Platforms/MovingPlatform6" index="2"]
-shape = SubResource( 17 )
-
-[node name="Label" parent="Platforms/MovingPlatform6" index="3"]
-text = "purple"
-
-[node name="Path" parent="Platforms/MovingPlatform6" index="4"]
-curve = SubResource( 18 )
-
-[node name="Follow" parent="Platforms/MovingPlatform6/Path" index="0"]
-position = Vector2( 0, 0 )
-rotation = 0.218669
+[node name="Path2D" type="Path2D" parent="Platforms/MovingPlatform6" index="5"]
+curve = SubResource( 27 )
 
 [node name="MovingPlatform7" parent="Platforms" index="10" instance=ExtResource( 2 )]
 position = Vector2( 224, 1248 )
@@ -392,27 +158,8 @@ color = 6
 length = 256
 initial_pi = 1.0
 
-[node name="NinePatch" parent="Platforms/MovingPlatform7" index="0"]
-margin_left = -128.0
-margin_right = 128.0
-region_rect = Rect2( 0, 48, 32, 8 )
-
-[node name="ColorAdd" parent="Platforms/MovingPlatform7" index="1"]
-texture = SubResource( 19 )
-color = 6
-
-[node name="Hitbox" parent="Platforms/MovingPlatform7" index="2"]
-shape = SubResource( 17 )
-
-[node name="Label" parent="Platforms/MovingPlatform7" index="3"]
-text = "purple"
-
-[node name="Path" parent="Platforms/MovingPlatform7" index="4"]
-curve = SubResource( 20 )
-
-[node name="Follow" parent="Platforms/MovingPlatform7/Path" index="0"]
-position = Vector2( 0, 0 )
-rotation = -0.218669
+[node name="Path2D" type="Path2D" parent="Platforms/MovingPlatform7" index="5"]
+curve = SubResource( 28 )
 
 [node name="MovingPlatform12" parent="Platforms" index="11" instance=ExtResource( 2 )]
 position = Vector2( 224, 928 )
@@ -421,52 +168,16 @@ length = 256
 seconds = 3.0
 loop = false
 
-[node name="NinePatch" parent="Platforms/MovingPlatform12" index="0"]
-margin_left = -128.0
-margin_right = 128.0
-region_rect = Rect2( 0, 40, 32, 8 )
-
-[node name="ColorAdd" parent="Platforms/MovingPlatform12" index="1"]
-texture = SubResource( 21 )
-color = 5
-
-[node name="Hitbox" parent="Platforms/MovingPlatform12" index="2"]
-shape = SubResource( 17 )
-
-[node name="Label" parent="Platforms/MovingPlatform12" index="3"]
-text = "green"
-
-[node name="Path" parent="Platforms/MovingPlatform12" index="4"]
-curve = SubResource( 20 )
-
-[node name="Follow" parent="Platforms/MovingPlatform12/Path" index="0"]
-position = Vector2( 0, 0 )
-rotation = -0.218669
+[node name="Path2D" type="Path2D" parent="Platforms/MovingPlatform12" index="5"]
+curve = SubResource( 28 )
 
 [node name="MovingPlatform14" parent="Platforms" index="12" instance=ExtResource( 2 )]
 position = Vector2( 208, 400 )
 color = 3
 seconds = 4.0
 
-[node name="NinePatch" parent="Platforms/MovingPlatform14" index="0"]
-region_rect = Rect2( 0, 24, 32, 8 )
-
-[node name="ColorAdd" parent="Platforms/MovingPlatform14" index="1"]
-texture = SubResource( 22 )
-color = 3
-
-[node name="Hitbox" parent="Platforms/MovingPlatform14" index="2"]
-shape = SubResource( 23 )
-
-[node name="Label" parent="Platforms/MovingPlatform14" index="3"]
-text = "blue"
-
-[node name="Path" parent="Platforms/MovingPlatform14" index="4"]
-curve = SubResource( 24 )
-
-[node name="Follow" parent="Platforms/MovingPlatform14/Path" index="0"]
-position = Vector2( 0, 0 )
-rotation = 2.35619
+[node name="Path2D" type="Path2D" parent="Platforms/MovingPlatform14" index="5"]
+curve = SubResource( 29 )
 
 [node name="MovingPlatform13" parent="Platforms" index="13" instance=ExtResource( 2 )]
 position = Vector2( 800, 864 )
@@ -475,89 +186,47 @@ length = 256
 seconds = 3.0
 loop = false
 
-[node name="NinePatch" parent="Platforms/MovingPlatform13" index="0"]
-margin_left = -128.0
-margin_right = 128.0
-region_rect = Rect2( 0, 16, 32, 8 )
+[node name="Path2D" type="Path2D" parent="Platforms/MovingPlatform13" index="5"]
+curve = SubResource( 21 )
 
-[node name="ColorAdd" parent="Platforms/MovingPlatform13" index="1"]
-texture = SubResource( 25 )
-color = 2
+[node name="Switchers" parent="." index="5"]
+editor/display_folded = true
 
-[node name="Hitbox" parent="Platforms/MovingPlatform13" index="2"]
-shape = SubResource( 17 )
-
-[node name="Label" parent="Platforms/MovingPlatform13" index="3"]
-text = "yellow"
-
-[node name="Path" parent="Platforms/MovingPlatform13" index="4"]
-curve = SubResource( 26 )
-
-[node name="Follow" parent="Platforms/MovingPlatform13/Path" index="0"]
-position = Vector2( 0, 0 )
-rotation = -1.5708
-
-[node name="Switcher2" parent="Switchers" index="0" instance=ExtResource( 5 )]
+[node name="Switcher2" parent="Switchers" index="0" instance=ExtResource( 4 )]
 position = Vector2( 224, 1184 )
 color = 3
 
-[node name="Switcher3" parent="Switchers" index="1" instance=ExtResource( 5 )]
+[node name="Switcher3" parent="Switchers" index="1" instance=ExtResource( 4 )]
 position = Vector2( 512, 800 )
 color = 2
 
-[node name="Switcher10" parent="Switchers" index="2" instance=ExtResource( 5 )]
+[node name="Switcher10" parent="Switchers" index="2" instance=ExtResource( 4 )]
 position = Vector2( 896, 480 )
 color = 5
 
-[node name="Switcher4" parent="Switchers" index="3" instance=ExtResource( 5 )]
+[node name="Switcher4" parent="Switchers" index="3" instance=ExtResource( 4 )]
 position = Vector2( 512, 1184 )
 
-[node name="Switcher5" parent="Switchers" index="4" instance=ExtResource( 5 )]
+[node name="Switcher5" parent="Switchers" index="4" instance=ExtResource( 4 )]
 position = Vector2( 96, 1488 )
 color = 4
 
-[node name="Switcher6" parent="Switchers" index="5" instance=ExtResource( 5 )]
+[node name="Switcher6" parent="Switchers" index="5" instance=ExtResource( 4 )]
 position = Vector2( 928, 1488 )
 color = 2
 
-[node name="Switcher9" parent="Switchers" index="6" instance=ExtResource( 5 )]
+[node name="Switcher9" parent="Switchers" index="6" instance=ExtResource( 4 )]
 position = Vector2( 800, 1184 )
 color = 3
 
-[node name="Switcher7" parent="Switchers" index="7" instance=ExtResource( 5 )]
+[node name="Switcher7" parent="Switchers" index="7" instance=ExtResource( 4 )]
 position = Vector2( 96, 1824 )
 color = 6
 
-[node name="Switcher8" parent="Switchers" index="8" instance=ExtResource( 5 )]
+[node name="Switcher8" parent="Switchers" index="8" instance=ExtResource( 4 )]
 position = Vector2( 928, 1824 )
 color = 5
 
-[node name="Elevator" parent="Elevators" index="0" instance=ExtResource( 6 )]
+[node name="Elevator" parent="Elevators" index="0" instance=ExtResource( 5 )]
 position = Vector2( 512, 256 )
 color = 5
-
-[editable path="Platforms/MovingPlatform"]
-
-[editable path="Platforms/MovingPlatform2"]
-
-[editable path="Platforms/MovingPlatform4"]
-
-[editable path="Platforms/MovingPlatform5"]
-
-[editable path="Platforms/MovingPlatform3"]
-
-[editable path="Platforms/MovingPlatform8"]
-
-[editable path="Platforms/MovingPlatform9"]
-
-[editable path="Platforms/MovingPlatform10"]
-
-[editable path="Platforms/MovingPlatform6"]
-
-[editable path="Platforms/MovingPlatform7"]
-
-[editable path="Platforms/MovingPlatform12"]
-
-[editable path="Platforms/MovingPlatform14"]
-
-[editable path="Platforms/MovingPlatform13"]
