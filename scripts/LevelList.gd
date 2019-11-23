@@ -18,6 +18,8 @@ var Levels = [{
         name = "Moves", dir = 'moves', levels = [
             {key = 'Moves_01', label = "Zoooooooom", req=['Intro_01']},
             {key = 'Moves_02', label = "Trigonometric"},
+            {key = 'Moves_03', label = "Jumping down the rainbow"},
+            {key = 'Moves_04', label = "4-Wheel Jump"},
             {key = 'Moves_05', label = "Rainbow Vomit Road"},
         ]
     }, {

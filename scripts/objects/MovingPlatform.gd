@@ -29,7 +29,7 @@ func _ready():
     if path == null:
         path = $BasePath
         follow = $BasePath/Follow
-        push_error("Could not find a child path")
+        push_warning("Could not find a child path")
 
 func _physics_process(delta):
     if Engine.editor_hint or follow == null:
