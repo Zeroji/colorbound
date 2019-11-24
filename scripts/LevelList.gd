@@ -13,6 +13,7 @@ var Levels = [{
             {key = 'Intro_05', label = "Obvious, yet wrong"},
             {key = 'Intro_06', label = "Taste the rainbow!"},
             {key = 'Intro_07', label = "Final course"},
+            {key = 'Intro_08', label = "Graduation"},
         ]
     }, {
         name = "Moves", dir = 'moves', levels = [
@@ -24,7 +25,7 @@ var Levels = [{
         ]
     }, {
         name = "Showcase", dir = '.', levels = [
-            {key = 'Showcase', label = "Game Off 2019 showcase", req=['Moves_01']},
+            {key = 'Showcase', label = "Game Off 2019 showcase", req=[]},
         ]
     }
 ]
