@@ -80,7 +80,6 @@ color = 2
 
 [node name="Switcher4" parent="Switchers" index="2" instance=ExtResource( 4 )]
 position = Vector2( 1040, 464 )
-color = 1
 
 [node name="Elevator" parent="Elevators" index="0" instance=ExtResource( 5 )]
 position = Vector2( 1376, 256 )

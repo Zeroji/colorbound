@@ -360,7 +360,6 @@ color = 6
 
 [node name="Switcher14" parent="Switchers" index="4" instance=ExtResource( 4 )]
 position = Vector2( 880, 848 )
-color = 1
 
 [node name="Switcher15" parent="Switchers" index="5" instance=ExtResource( 4 )]
 position = Vector2( 880, 912 )
@@ -384,7 +383,6 @@ color = 6
 
 [node name="Switcher11" parent="Switchers" index="10" instance=ExtResource( 4 )]
 position = Vector2( 512, 1056 )
-color = 1
 
 [node name="Switcher12" parent="Switchers" index="11" instance=ExtResource( 4 )]
 position = Vector2( 320, 1056 )

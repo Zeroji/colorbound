@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/objects/Switcher.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/objects/Elevator.tscn" type="PackedScene" id=4]
 
-[node name="Intro_01" instance=ExtResource( 1 )]
+[node name="Intro_01" index="0" instance=ExtResource( 1 )]
 
 [node name="Colorblindness" parent="." index="0"]
 Type = 0
@@ -27,7 +27,6 @@ length = 128
 
 [node name="Switcher1" parent="Switchers" index="0" instance=ExtResource( 3 )]
 position = Vector2( 448, 416 )
-color = 1
 
 [node name="Switcher2" parent="Switchers" index="1" instance=ExtResource( 3 )]
 position = Vector2( 576, 416 )
