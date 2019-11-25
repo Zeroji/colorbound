@@ -6,6 +6,7 @@ const GRAVITY = 1500.0
 const WALK_SPEED = 300
 const JUMP_SPEED = 550
 const JUMP_TIME = 0.5
+const TEXTURE_SIZE:int = 32
 
 var velocity = Vector2()
 var target_velx = 0
@@ -14,6 +15,7 @@ export (CS.Colors) var color = CS.Colors.white setget set_color
 export (bool) var mobile = true
 
 func _ready():
+    set_color(color)
     set_collision_layer_bit(CS.layer(color), true)
     var touch_node = get_node("TouchInput%d" % Main.sd.settings.touchinput)
     if touch_node != null:
@@ -66,6 +68,7 @@ func set_color(col):
     color = col
     $ColorAdd.set_color(color)
     $AnimatedSprite.animation = CS.name(color)
+    $Sprite.texture.region.position.x = TEXTURE_SIZE * CS.id(color)
 
 func immobilize():
     velocity.x = 0
