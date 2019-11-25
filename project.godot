@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Settings.gd"
 }, {
+"base": "Area2D",
+"class": "Switcher",
+"language": "GDScript",
+"path": "res://scripts/objects/Switcher.gd"
+}, {
 "base": "Control",
 "class": "TitleScreen",
 "language": "GDScript",
@@ -61,6 +66,7 @@ _global_script_class_icons={
 "Platform": "",
 "Player": "",
 "Settings": "",
+"Switcher": "",
 "TitleScreen": "",
 "Wall": "",
 "XButton": ""
