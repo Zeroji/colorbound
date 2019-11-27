@@ -67,7 +67,7 @@ func set_color(col):
         set_collision_layer_bit(CS.layer(col), true)
     color = col
     $ColorAdd.set_color(color)
-    $AnimatedSprite.animation = CS.name(color)
+    # $AnimatedSprite.animation = CS.name(color)
     $Sprite.texture.region.position.x = TEXTURE_SIZE * CS.id(color)
 
 func immobilize():

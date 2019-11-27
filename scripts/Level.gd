@@ -84,7 +84,7 @@ func _on_menu_input_event(event: InputEvent, node: Label):
     if event.is_action_pressed("ui_menu"):
         $CL/Menu.visible = false
         get_tree().paused = false
-    if event.is_action_pressed("ui_accept") or (event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT):
+    if event.is_action_released("ui_accept"):
         get_tree().paused = false
         get_tree().set_input_as_handled()
         match node.name:

@@ -108,7 +108,7 @@ func _on_gui_input(event: InputEvent, node: Label, key, group):
             option_next(key, group)
         if event.is_action_pressed("ui_left"):
             option_next(key, group, -1)
-    elif event.is_action_pressed("ui_accept") or (event is InputEventMouseButton and event.button_index == BUTTON_LEFT):
+    elif event.is_action_pressed("ui_accept"):
         if node.name == 'Apply':
             apply_new_settings()
             Main.title()
@@ -116,9 +116,7 @@ func _on_gui_input(event: InputEvent, node: Label, key, group):
             Main.title()
 
 func _on_option_click(event: InputEvent, options, index, key):
-    if event is InputEventMouseButton:
-        event = event as InputEventMouseButton
-        if event.button_index == BUTTON_LEFT and event.is_pressed():
+    if event.is_action_pressed("ui_accept"):
             if opt_indexes[key] > -1:
                 option_deselect(options.get_child(opt_indexes[key]))
             opt_indexes[key] = index
