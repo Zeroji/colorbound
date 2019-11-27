@@ -36,6 +36,7 @@ script = ExtResource( 1 )
 [node name="Colorblindness" type="Node" parent="."]
 editor/display_folded = true
 script = ExtResource( 2 )
+Type = 0
 
 [node name="ColorLabel" type="Label" parent="Colorblindness"]
 margin_left = 48.0
@@ -52,7 +53,6 @@ tile_data = PoolIntArray( -1, 0, 4, -65536, 0, 5, -65535, 0, 5, -65534, 0, 5, -6
 
 [node name="SpawnPoint" parent="." instance=ExtResource( 4 )]
 position = Vector2( 64, 576 )
-color = 0
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 z_index = 1
@@ -82,6 +82,12 @@ editor_draw_drag_margin = true
 
 [node name="Text" type="Node2D" parent="."]
 visible = false
+z_index = 1
+
+[node name="Checkpoints" type="Node2D" parent="."]
+z_index = 1
+
+[node name="Spikes" type="Node2D" parent="."]
 z_index = 1
 
 [node name="CL" type="CanvasLayer" parent="."]

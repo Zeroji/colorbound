@@ -11,7 +11,7 @@ var base_name = null
 
 func save_checkpoint(checkpoint):
     last_checkpoint = checkpoint
-    emit_signal("checkpoint", base_name, checkpoint.name, CS.name(checkpoint.color))
+    emit_signal("checkpoint", base_name, checkpoint.get_path(), CS.name(checkpoint.color))
 
 func load_checkpoint(checkpoint):
     $Player.position = checkpoint.position
@@ -48,6 +48,8 @@ func _ready():
     for elevator in $Elevators.get_children():
         elevator.connect("activated", self, "_on_elevator_activated")
         elevator.connect("finished", self, "_on_elevator_finished")
+    for checkpoint in $Checkpoints.get_children():
+        checkpoint.connect("activated", self, "save_checkpoint", [checkpoint])
     $CL/Menu/Container/Panel/VBox/LevelCount.text = "Level %s" % LL.get_display_index(name)
     $CL/Menu/Container/Panel/VBox/LevelName.text = LL.get_display_name(name)
     for label in $CL/Menu/Container/Panel/VBox.get_children():
