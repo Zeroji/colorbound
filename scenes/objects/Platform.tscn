@@ -9,7 +9,7 @@
 
 [sub_resource type="StreamTexture" id=1]
 resource_local_to_scene = true
-load_path = "res://.import/all.png-2024ccc8d5396fd5759cafb6d158a400.stex"
+load_path = "res://.import/platforms.png-28bdef77f09d3b3846e9d662a33761b5.stex"
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = SubResource( 1 )

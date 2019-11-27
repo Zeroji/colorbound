@@ -6,7 +6,7 @@
 
 [sub_resource type="StreamTexture" id=1]
 flags = 4
-load_path = "res://.import/walls.png-48f7469b757eaad7a2e6af693f5f4f9b.stex"
+load_path = "res://.import/walls.png-cf7c18cc6a534d119a7297752c15d613.stex"
 
 [sub_resource type="AtlasTexture" id=2]
 resource_local_to_scene = true

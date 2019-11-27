@@ -9,7 +9,7 @@
 
 
 [sub_resource type="StreamTexture" id=1]
-load_path = "res://.import/elevators.png-2f0f68b3a482962d89e5bad9517b74bc.stex"
+load_path = "res://.import/elevators.png-db710d1501d826a25041fd11d55487ee.stex"
 
 [sub_resource type="AtlasTexture" id=2]
 resource_local_to_scene = true
