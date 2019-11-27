@@ -40,6 +40,11 @@ _global_script_classes=[ {
 "path": "res://scripts/Settings.gd"
 }, {
 "base": "Area2D",
+"class": "Spikes",
+"language": "GDScript",
+"path": "res://scripts/objects/Spikes.gd"
+}, {
+"base": "Area2D",
 "class": "Switcher",
 "language": "GDScript",
 "path": "res://scripts/objects/Switcher.gd"
@@ -66,6 +71,7 @@ _global_script_class_icons={
 "Platform": "",
 "Player": "",
 "Settings": "",
+"Spikes": "",
 "Switcher": "",
 "TitleScreen": "",
 "Wall": "",

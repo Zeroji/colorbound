@@ -76,3 +76,6 @@ func immobilize():
     velocity.x = 0
     target_velx = 0
     mobile = false
+
+func kill():
+    print('Ouch')
