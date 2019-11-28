@@ -24,6 +24,11 @@ var Levels = [{
             {key = 'Moves_05', label = "Rainbow Vomit Road"},
         ]
     }, {
+        name = "Death", dir = 'death', levels = [
+            {key = 'Death_01', label = "Ctrl + S", req=['Moves_01']},
+            {key = 'Death_03', label = "Death Ram"},
+        ]
+    }, {
         name = "Showcase", dir = '.', levels = [
             {key = 'Showcase', label = "Game Off 2019 showcase", req=[]},
         ]

@@ -139,7 +139,6 @@ z_index = 1
 [node name="Continue" parent="Map/Buttons" instance=ExtResource( 7 )]
 position = Vector2( 512, 240 )
 text = "Continue"
-width = 160
 
 [node name="LevelName" type="Label" parent="Map/Buttons/Continue"]
 margin_left = -80.0
@@ -154,22 +153,18 @@ uppercase = true
 [node name="NewGame" parent="Map/Buttons" instance=ExtResource( 7 )]
 position = Vector2( 224, 304 )
 text = "New game"
-width = 160
 
 [node name="Settings" parent="Map/Buttons" instance=ExtResource( 7 )]
 position = Vector2( 256, 560 )
 text = "Settings"
-width = 160
 
 [node name="Levels" parent="Map/Buttons" instance=ExtResource( 7 )]
 position = Vector2( 800, 304 )
 text = "Levels"
-width = 160
 
 [node name="Quit" parent="Map/Buttons" instance=ExtResource( 7 )]
 position = Vector2( 768, 560 )
 text = "Quit"
-width = 160
 [connection signal="pressed" from="CanvasLayer/NewGameButton" to="." method="_on_NewGameButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/ContinueButton" to="." method="_on_ContinueButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/LevelButton" to="." method="_on_LevelButton_pressed"]

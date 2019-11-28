@@ -45,7 +45,7 @@ margin_right = 192.0
 margin_bottom = 80.0
 
 [node name="TileMap" type="TileMap" parent="."]
-z_index = 1
+z_index = 2
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 32, 32 )
 format = 1
