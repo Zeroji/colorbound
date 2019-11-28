@@ -143,7 +143,7 @@ color = 5
 position = Vector2( 448, 528 )
 
 [node name="Spikes48" parent="Spikes" index="11" instance=ExtResource( 7 )]
-position = Vector2( 384, 304 )
+position = Vector2( 400, 304 )
 color = 4
 
 [node name="Spikes35" parent="Spikes" index="12" instance=ExtResource( 7 )]
