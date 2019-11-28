@@ -2,11 +2,14 @@ extends KinematicBody2D
 
 class_name Player
 
+signal death
+
 const GRAVITY = 1500.0
 const WALK_SPEED = 300
 const JUMP_SPEED = 550
 const JUMP_TIME = 0.5
 const TEXTURE_SIZE:int = 32
+const TEXTURE_SIZE_DEATH:int = 64
 
 var velocity = Vector2()
 var target_velx = 0
@@ -77,5 +80,26 @@ func immobilize():
     target_velx = 0
     mobile = false
 
+onready var was_coloradd_visible = $ColorAdd.visible
+
+func spawn():
+    visible = true
+    target_velx = 0
+    $ColorAdd.visible = was_coloradd_visible
+    $Sprite.visible = true
+    mobile = true
+
 func kill():
-    print('Ouch')
+    $Death.texture.region.position.y = TEXTURE_SIZE_DEATH * CS.id(color)
+    $Death.visible = true
+    $Sprite.visible = false
+    was_coloradd_visible = $ColorAdd.visible
+    $ColorAdd.visible = false
+    $Death/Anim.play("death")
+    immobilize()
+
+func _on_Anim_animation_finished(anim_name):
+    if anim_name == "death":
+        $Death.visible = false
+        $Death/Anim.seek(0)
+        emit_signal("death")

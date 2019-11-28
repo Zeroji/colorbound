@@ -16,7 +16,7 @@ func save_checkpoint(checkpoint):
 func load_checkpoint(checkpoint):
     $Player.position = checkpoint.position
     $Player.color = checkpoint.color
-    $Player.visible = true
+    $Player.spawn()
 
 func resume(checkpoint_name, color_name):
     var checkpoint = get_node(checkpoint_name)
@@ -34,6 +34,7 @@ func connect_label(node: Label):
 func _ready():
     connect("checkpoint", Main, "level_checkpoint")
     connect("completed", Main, "level_completed")
+    $Player.connect("death", self, "on_death")
     base_name = filename.substr(filename.find_last("/") + 1, 99).replace('.tscn', '')
     if name != base_name:
         push_warning("Level node name differs from file name: %s" % filename)
@@ -94,12 +95,25 @@ func _on_menu_input_event(event: InputEvent, node: Label):
                 $CL/Menu.visible = false
             "Restart":
                 $CL/Menu.visible = false
-                # TODO: add code to reset moving elements
-                $Player.target_velx = 0
-                load_checkpoint($SpawnPoint)
+                reset()
             "Settings":
                 Main.settings()
             "Title":
                 Main.title()
             "Quit":
                 Main.quit()
+
+func on_death():
+    reset(last_checkpoint)
+
+func reset(checkpoint=null):
+    if checkpoint == null:
+        load_checkpoint($SpawnPoint)
+        # Full level restart
+        save_checkpoint($SpawnPoint)
+        last_checkpoint = null
+        for checkpoint in $Checkpoints.get_children():
+            checkpoint.color = CS.Colors.white
+    else:
+        load_checkpoint(checkpoint)
+    # TODO: add code to reset moving elements
