@@ -42,7 +42,7 @@ func _physics_process(delta):
     velocity = move_and_slide_with_snap(velocity, snap, Vector2(0, -1), true, 4, PI/3)
     
     var walk_speed = 0
-    if mobile:
+    if mobile and alive:
         if Input.is_action_pressed("left"):
             walk_speed -= 1
         if Input.is_action_pressed("right"):
@@ -104,7 +104,6 @@ func kill():
     was_coloradd_visible = $ColorAdd.visible
     $ColorAdd.visible = false
     $Death/Anim.play("death")
-    immobilize()
 
 func _on_Anim_animation_finished(anim_name):
     if anim_name == "death":

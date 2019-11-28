@@ -67,7 +67,7 @@ func _on_Approach_body_exited(body):
         $Animation.seek(pos * $Animation.current_animation_length)
 
 func _on_HitboxLeft_body_entered(body):
-    if body is Player:
+    if body is Player and body.alive:
         hit_left = true
         check_status()
 
@@ -76,7 +76,7 @@ func _on_HitboxLeft_body_exited(body):
         hit_left = false
 
 func _on_HitboxRight_body_entered(body):
-    if body is Player:
+    if body is Player and body.alive:
         hit_right = true
         check_status()
 

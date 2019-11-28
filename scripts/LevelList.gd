@@ -26,6 +26,7 @@ var Levels = [{
     }, {
         name = "Death", dir = 'death', levels = [
             {key = 'Death_01', label = "Ctrl + S", req=['Moves_01']},
+            {key = 'Death_02', label = "Not a VVVVVV clone"},
             {key = 'Death_03', label = "Death Ram"},
         ]
     }, {
