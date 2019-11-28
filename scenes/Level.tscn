@@ -88,7 +88,6 @@ z_index = 1
 z_index = 1
 
 [node name="Spikes" type="Node2D" parent="."]
-z_index = 1
 
 [node name="CL" type="CanvasLayer" parent="."]
 
