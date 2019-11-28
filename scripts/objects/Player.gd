@@ -11,6 +11,8 @@ const JUMP_TIME = 0.5
 const TEXTURE_SIZE:int = 32
 const TEXTURE_SIZE_DEATH:int = 64
 
+var alive: bool = false
+var invincible: float = 0
 var velocity = Vector2()
 var target_velx = 0
 var jump: float = 0
@@ -29,6 +31,7 @@ func _ready():
             node.visible = true
 
 func _physics_process(delta):
+    invincible = max(0, invincible - delta)
     var snap = Vector2(0, 20)
     jump = max(0, jump-delta)
     if jump:
@@ -88,8 +91,13 @@ func spawn():
     $ColorAdd.visible = was_coloradd_visible
     $Sprite.visible = true
     mobile = true
+    alive = true
+    invincible = 0.1
 
 func kill():
+    if not alive or invincible > 0:
+        return
+    alive = false
     $Death.texture.region.position.y = TEXTURE_SIZE_DEATH * CS.id(color)
     $Death.visible = true
     $Sprite.visible = false
