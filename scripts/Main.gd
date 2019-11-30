@@ -6,14 +6,14 @@ var debug_mode: bool = true
 
 # Save data management
 const save_path = 'user://colorbound.json'
-const SAVE_VER: int = 2
+const SAVE_VER: int = 3
 const base_data = {
     ver = SAVE_VER,
     levels = {},
     settings = {},
 }
 const base_level_data = { completed = false }
-const base_settings = {"colorblind": false, "touchinput": 2}
+const base_settings = {"colorblind": false, "touchinput": 2, "sfx": -15}
 
 var sd = null # save data
 
@@ -88,6 +88,10 @@ func quit():
 func apply_settings():
     # colorblind: nothing to be done (see ColorAddSprite.gd)
     # touchinput: nothing to be done (see Player.gd)
+    var sfx_bus = AudioServer.get_bus_index('SFX')
+    AudioServer.set_bus_mute(sfx_bus, sd.settings.sfx == null)
+    if sd.settings.sfx != null:
+        AudioServer.set_bus_volume_db(sfx_bus, sd.settings.sfx)
     pass
 
 func _init():

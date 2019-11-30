@@ -7,6 +7,8 @@ const SETTINGS = [
      values=[["ON", true], ["OFF", false]]},
     {key="touchinput", label="Touch input size",
      values=[["2X", 2], ["1X", 1], ["FULL", 3], ["OFF", 0]]},
+    {key="sfx", label="SFX volume",
+     values=[["OFF", null], ["1", -21], ["2", -15], ["3", -9]]},
 ]
 
 var opt_indexes = {}
@@ -48,6 +50,8 @@ func option_next(key, options: Container, inc=1):
         index = options.get_child_count() - 1
     option_select(options.get_child(index))
     opt_indexes[key] = index
+    if key == 'sfx':
+        test_sfx()
 
 func _ready():
     var font = load("res://assets/settings_font.tres")
@@ -113,6 +117,7 @@ func _on_gui_input(event: InputEvent, node: Label, key, group):
             apply_new_settings()
             Main.title()
         elif node.name == 'Discard':
+            Main.apply_settings()  # Fix audio modifications
             Main.title()
 
 func _on_option_click(event: InputEvent, options, index, key):
@@ -121,3 +126,17 @@ func _on_option_click(event: InputEvent, options, index, key):
                 option_deselect(options.get_child(opt_indexes[key]))
             opt_indexes[key] = index
             option_select(options.get_child(index))
+            if key == 'sfx':
+                test_sfx()
+
+func test_sfx():
+    var sfx_bus = AudioServer.get_bus_index('SFX')
+    var volume = null
+    for st in SETTINGS:
+        if st.key != 'sfx':
+            continue
+        volume = st.values[opt_indexes['sfx']][1]
+    AudioServer.set_bus_mute(sfx_bus, volume == null)
+    if volume != null:
+        AudioServer.set_bus_volume_db(sfx_bus, volume)
+    $SoundTest.play()
