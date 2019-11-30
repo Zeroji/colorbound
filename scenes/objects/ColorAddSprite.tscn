@@ -9,5 +9,6 @@ atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 24, 24 )
 
 [node name="ColorAddSprite" type="Sprite"]
+visible = false
 texture = SubResource( 1 )
 script = ExtResource( 2 )

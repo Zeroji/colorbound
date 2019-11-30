@@ -30,8 +30,9 @@ var Levels = [{
             {key = 'Death_03', label = "Death Ram"},
         ]
     }, {
-        name = "Showcase", dir = '.', levels = [
+        name = "Extras", dir = 'extra', levels = [
             {key = 'Showcase', label = "Game Off 2019 showcase", req=[]},
+            {key = 'Credits', label = "Thank you.", req=[]}
         ]
     }
 ]
