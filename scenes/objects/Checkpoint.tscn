@@ -19,7 +19,7 @@ extents = Vector2( 7, 7 )
 [sub_resource type="AtlasTexture" id=4]
 resource_local_to_scene = true
 atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 16, 16 )
+region = Rect2( 0, 0, 24, 24 )
 
 [node name="Checkpoint" type="Area2D"]
 collision_layer = 0
@@ -36,7 +36,7 @@ position = Vector2( 0, 8 )
 shape = SubResource( 3 )
 
 [node name="ColorAdd" parent="." instance=ExtResource( 2 )]
-position = Vector2( 0, 8 )
+scale = Vector2( 2, 2 )
 texture = SubResource( 4 )
 
 [node name="CheckSound" type="AudioStreamPlayer2D" parent="."]

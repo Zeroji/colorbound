@@ -46,7 +46,7 @@ extents = Vector2( 15, 23.5 )
 [sub_resource type="AtlasTexture" id=5]
 resource_local_to_scene = true
 atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 16, 16 )
+region = Rect2( 0, 0, 24, 24 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 128, 256 )

@@ -13,7 +13,7 @@ region = Rect2( 8, 32, 32, 32 )
 [sub_resource type="AtlasTexture" id=2]
 resource_local_to_scene = true
 atlas = ExtResource( 4 )
-region = Rect2( 16, 16, 16, 16 )
+region = Rect2( 24, 24, 24, 24 )
 
 [node name="Spikes" type="Area2D"]
 collision_layer = 0

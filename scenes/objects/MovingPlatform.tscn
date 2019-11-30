@@ -4,7 +4,6 @@
 [ext_resource path="res://scenes/objects/ColorAddSprite.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/objects/coloradd.png" type="Texture" id=3]
 
-
 [sub_resource type="StreamTexture" id=1]
 resource_local_to_scene = true
 load_path = "res://.import/platforms.png-28bdef77f09d3b3846e9d662a33761b5.stex"
@@ -13,10 +12,10 @@ load_path = "res://.import/platforms.png-28bdef77f09d3b3846e9d662a33761b5.stex"
 atlas = SubResource( 1 )
 region = Rect2( 0, 0, 32, 8 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=3]
 resource_local_to_scene = true
 atlas = ExtResource( 3 )
-region = Rect2( 16, 16, 16, 16 )
+region = Rect2( 24, 24, 24, 24 )
 
 [sub_resource type="RectangleShape2D" id=4]
 resource_local_to_scene = true
@@ -50,7 +49,8 @@ patch_margin_right = 4
 patch_margin_bottom = 3
 
 [node name="ColorAdd" parent="." instance=ExtResource( 2 )]
-texture = SubResource( 6 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 3 )
 color = 1
 style = 1
 

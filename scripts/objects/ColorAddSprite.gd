@@ -1,7 +1,7 @@
 tool
 extends Sprite
 
-const SIZE: int = 16
+const SIZE: int = 24
 enum Style { Centered, Horizontal, Vertical }
 
 export (CS.Colors) var color = CS.Colors.white setget set_color
