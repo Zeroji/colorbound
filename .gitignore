@@ -5,5 +5,9 @@
 # Aseprite base resources
 *.ase
 
+# rFXGen
+*.rfx
+rfxgen*
+
 # Environment
 .vscode/
