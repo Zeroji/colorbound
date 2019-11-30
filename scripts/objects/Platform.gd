@@ -12,6 +12,9 @@ func update_collision_bits():
     set_collision_layer_bit(CS.layer(color), true)
     for mask_bit in CS.mask(color):
         set_collision_mask_bit(mask_bit, true)
+    if color == CS.Colors.white:
+        for bit in range(11, 18):
+            set_collision_mask_bit(bit, true)
 
 func update_platform_length():
     # Update hitbox size

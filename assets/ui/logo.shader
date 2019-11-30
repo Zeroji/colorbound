@@ -46,10 +46,12 @@ vec3 hsltorgb(vec3 c) {
 }
 
 void fragment() {
-    vec3 in_col = textureLod(TEXTURE, UV, 0f).rgb;
+    vec4 IN = textureLod(TEXTURE, UV, 0f);
+    vec3 in_col = IN.rgb;
     in_col = rgbtohsl(in_col);
     in_col.x += shift;
     if(in_col.x >= 1f) in_col.x -= 1f;
     in_col = hsltorgb(in_col);
     COLOR.rgb = in_col;
+    COLOR.a = IN.a;
 }
