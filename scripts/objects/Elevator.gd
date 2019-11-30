@@ -33,6 +33,7 @@ func _ready():
 
 func check_status():
     if opened and hit_left and hit_right:
+        $OpenSound.stop()
         activated = true
         emit_signal("activated", self)
         $DoorLeft.z_index += 2
@@ -56,6 +57,8 @@ func _on_Approach_body_entered(body):
             pos = 1 - $Animation.current_animation_position / $Animation.current_animation_length
         $Animation.play("open")
         $Animation.seek(pos * $Animation.current_animation_length)
+        $ShutSound.stop()
+        $OpenSound.play()
 
 func _on_Approach_body_exited(body):
     if body is Player and opened:
@@ -65,6 +68,8 @@ func _on_Approach_body_exited(body):
             pos = 1 - $Animation.current_animation_position / $Animation.current_animation_length
         $Animation.play("shut")
         $Animation.seek(pos * $Animation.current_animation_length)
+        $OpenSound.stop()
+        $ShutSound.play()
 
 func _on_HitboxLeft_body_entered(body):
     if body is Player and body.alive:

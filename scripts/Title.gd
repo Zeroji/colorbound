@@ -10,6 +10,7 @@ func _ready():
         $Map/Buttons/Continue/LevelName.text = "Level %s" % LL.get_display_index(Main.sd.checkpoint.level)
     else:
         $CanvasLayer/ContinueButton.visible = false
+    $Map/Player.spawn()
 
 func button_quit(body):
     if body is Player:

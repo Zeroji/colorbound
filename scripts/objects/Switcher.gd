@@ -14,6 +14,7 @@ func update_sprite():
 func _ready():
     if not Engine.editor_hint:
         update_sprite()
+        $SwitchSound.pitch_scale = 0.8 + 0.2 * CS.id(color)
 
 # warning-ignore:unused_argument
 func _process(delta):
@@ -22,4 +23,6 @@ func _process(delta):
 
 func _on_Switcher_body_entered(body):
     if body is Player:
+        if body.color != self.color:
+            $SwitchSound.play()
         body.color = self.color

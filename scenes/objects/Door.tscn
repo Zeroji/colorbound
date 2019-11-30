@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/objects/Door.gd" type="Script" id=1]
 [ext_resource path="res://assets/objects/door.png" type="Texture" id=2]
 [ext_resource path="res://assets/objects/door_mask.png" type="Texture" id=3]
-
+[ext_resource path="res://assets/sounds/door_open.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sounds/door_close.wav" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "close"
@@ -121,3 +122,13 @@ margin_right = 57.0
 margin_bottom = 16.0
 text = "Open 0
 Close 0"
+
+[node name="OpenSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+attenuation = 0.0323521
+bus = "SFX"
+
+[node name="CloseSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+attenuation = 0.0323521
+bus = "SFX"

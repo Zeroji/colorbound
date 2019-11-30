@@ -65,6 +65,7 @@ func _ready():
 func _on_elevator_activated(elevator):
     $Player.immobilize()
     $Player.position = elevator.position
+    $LevelCompleteSound.play()
 
 # When elevator doors close, transition to next level
 func _on_elevator_finished():

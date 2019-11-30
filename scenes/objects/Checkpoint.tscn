@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/objects/Checkpoint.gd" type="Script" id=1]
 [ext_resource path="res://scenes/objects/ColorAddSprite.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/objects/coloradd.png" type="Texture" id=3]
+[ext_resource path="res://assets/sounds/checkpoint.wav" type="AudioStream" id=4]
 
 [sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/checkpoints.png-58bddbe7e0d638893b35094727b4ea38.stex"
@@ -37,4 +38,10 @@ shape = SubResource( 3 )
 [node name="ColorAdd" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, 8 )
 texture = SubResource( 4 )
+
+[node name="CheckSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -3.0
+attenuation = 0.0334929
+bus = "SFX"
 [connection signal="body_entered" from="." to="." method="_on_Checkpoint_body_entered"]

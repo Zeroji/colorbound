@@ -42,5 +42,7 @@ func _process(delta):
 
 func _on_Checkpoint_body_entered(body):
     if body is Player:
+        if self.color != body.color:
+            $CheckSound.play()
         self.color = body.color
         emit_signal("activated")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/objects/Switcher.gd" type="Script" id=1]
 [ext_resource path="res://assets/objects/switchers.png" type="Texture" id=2]
 [ext_resource path="res://scenes/objects/ColorAddSprite.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/objects/coloradd.png" type="Texture" id=4]
+[ext_resource path="res://assets/sounds/switch.wav" type="AudioStream" id=5]
 
 [sub_resource type="AtlasTexture" id=1]
 resource_local_to_scene = true
@@ -31,5 +32,9 @@ shape = SubResource( 2 )
 [node name="ColorAdd" parent="." instance=ExtResource( 3 )]
 texture = SubResource( 3 )
 color = 1
-style = 0
+
+[node name="SwitchSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+attenuation = 0.0301855
+bus = "SFX"
 [connection signal="body_entered" from="." to="." method="_on_Switcher_body_entered"]

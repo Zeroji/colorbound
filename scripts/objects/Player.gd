@@ -50,6 +50,7 @@ func _physics_process(delta):
         if Input.is_action_just_pressed("jump") and is_on_floor():
             velocity.y = -JUMP_SPEED
             jump = JUMP_TIME
+            #$JumpSound.play()
     
     target_velx = lerp(target_velx, walk_speed*WALK_SPEED, 15*delta)
     velocity.x = target_velx # walk_speed*WALK_SPEED
@@ -104,6 +105,7 @@ func kill():
     was_coloradd_visible = $ColorAdd.visible
     $ColorAdd.visible = false
     $Death/Anim.play("death")
+    $DeathSound.play()
 
 func _on_Anim_animation_finished(anim_name):
     if anim_name == "death":

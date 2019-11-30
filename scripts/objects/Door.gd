@@ -19,9 +19,13 @@ func open():
     update_label()
     if open_count == close_count + 1:
         $Animation.play("open")
+        $OpenSound.play()
+        $CloseSound.stop()
 
 func close():
     close_count += 1
     update_label()
     if open_count == close_count:
         $Animation.play("close")
+        $CloseSound.play()
+        $OpenSound.stop()
