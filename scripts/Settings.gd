@@ -112,7 +112,7 @@ func _on_gui_input(event: InputEvent, node: Label, key, group):
             option_next(key, group)
         if event.is_action_pressed("ui_left"):
             option_next(key, group, -1)
-    elif event.is_action_pressed("ui_accept") or (event is InputEventMouseButton and event.button_index == BUTTON_LEFT):
+    elif event.is_action_released("ui_accept") or (event is InputEventMouseButton and event.button_index == BUTTON_LEFT and not event.pressed):
         if node.name == 'Apply':
             apply_new_settings()
             Main.title()
