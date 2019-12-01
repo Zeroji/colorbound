@@ -96,5 +96,5 @@ func _input(event: InputEvent):
         Main.title()
 
 func _on_XButton_gui_input(event):
-    if event.is_action_pressed("ui_accept"):
+    if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
         Main.title()
