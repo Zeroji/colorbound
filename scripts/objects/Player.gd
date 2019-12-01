@@ -54,7 +54,7 @@ func _physics_process(delta):
             jump = JUMP_TIME
             #$JumpSound.play()
     # Only lerp when going at normal speeds - when exiting portals, go whoosh
-    if is_on_floor() or abs(velocity.x) < WALK_SPEED:
+    if is_on_floor() or abs(velocity.x) <= WALK_SPEED * 1.05:
         target_velx = lerp(target_velx, walk_speed*WALK_SPEED, 15*delta)
     velocity.x = target_velx # walk_speed*WALK_SPEED
     #velocity +=  + get_floor_velocity()

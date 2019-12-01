@@ -5,7 +5,7 @@ const TITLE_PATH = "res://scenes/Title.tscn"
 const LEVEL_PATH = "res://scenes/LevelSelect.tscn"
 
 var Levels = [{
-        name = "Introduction", dir = '.', levels = [
+        name = "Introduction", dir = 'intro', levels = [
             {key = 'Intro_01', label = "Red VS Blue"},
             {key = 'Intro_02', label = "Ready Player Yellow"},
             {key = 'Intro_03', label = "Head first in the wall"},
