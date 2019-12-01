@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/objects/Player.gd"
 }, {
+"base": "Area2D",
+"class": "Portal",
+"language": "GDScript",
+"path": "res://scripts/objects/Portal.gd"
+}, {
 "base": "Control",
 "class": "Settings",
 "language": "GDScript",
@@ -76,6 +81,7 @@ _global_script_class_icons={
 "Level": "",
 "Platform": "",
 "Player": "",
+"Portal": "",
 "Settings": "",
 "Spikes": "",
 "Switcher": "",

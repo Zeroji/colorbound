@@ -14,6 +14,8 @@ const TEXTURE_SIZE_DEATH:int = 64
 var alive: bool = false
 var invincible: float = 0
 var velocity = Vector2()
+var last_position = Vector2()
+var actual_velocity = Vector2()
 var target_velx = 0
 var jump: float = 0
 export (CS.Colors) var color = CS.Colors.white setget set_color
@@ -51,8 +53,9 @@ func _physics_process(delta):
             velocity.y = -JUMP_SPEED
             jump = JUMP_TIME
             #$JumpSound.play()
-    
-    target_velx = lerp(target_velx, walk_speed*WALK_SPEED, 15*delta)
+    # Only lerp when going at normal speeds - when exiting portals, go whoosh
+    if is_on_floor() or abs(velocity.x) < WALK_SPEED:
+        target_velx = lerp(target_velx, walk_speed*WALK_SPEED, 15*delta)
     velocity.x = target_velx # walk_speed*WALK_SPEED
     #velocity +=  + get_floor_velocity()
     """
@@ -66,6 +69,8 @@ func _physics_process(delta):
     else:
         sprite.animation = "default"
         """
+    actual_velocity = (position - last_position) / delta
+    last_position = position
 
 func set_color(col):
     # Update collision layers
