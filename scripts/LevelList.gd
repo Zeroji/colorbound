@@ -37,6 +37,7 @@ var Levels = [{
     }, {
         name = "Extras", dir = 'extra', levels = [
             {key = 'Showcase', label = "Game Off 2019 showcase", req=[]},
+            {key = 'OneMore', label = "One.. more.. level...", req=['Whoosh_02']},
             {key = 'Credits', label = "Thank you.", req=[]}
         ]
     }
