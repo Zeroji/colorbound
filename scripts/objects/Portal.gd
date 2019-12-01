@@ -9,7 +9,7 @@ const TEXTURE_SIZE_FRAME:int = 96
 const TEXTURE_SIZE_ANIM = 16
 
 export (CS.Colors) var color = CS.Colors.red
-onready var g_rotation = get_global_transform_with_canvas().get_rotation()
+var g_rotation: float
 
 func update_sprite():
     $Background.texture.region.position.x = TEXTURE_SIZE_FRAME * CS.id(color)
@@ -33,6 +33,9 @@ func _ready():
         update_collision_bits()
     update_sprite()
     $Middle/AnimationPlayer.play("anim")
+    g_rotation = get_global_transform_with_canvas().get_rotation()
+    if abs(fmod(g_rotation, PI)) > 0.1 and PI - abs(fmod(g_rotation, PI)) > 0.1:
+        $Background/ColorRect.margin_bottom = 24
 
 # warning-ignore:unused_argument
 func _process(delta):

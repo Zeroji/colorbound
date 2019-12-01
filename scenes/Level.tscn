@@ -90,6 +90,8 @@ z_index = 1
 
 [node name="Spikes" type="Node2D" parent="."]
 
+[node name="Portals" type="Node2D" parent="."]
+
 [node name="CL" type="CanvasLayer" parent="."]
 editor/display_folded = true
 

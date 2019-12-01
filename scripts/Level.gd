@@ -51,6 +51,13 @@ func _ready():
         elevator.connect("finished", self, "_on_elevator_finished")
     for checkpoint in $Checkpoints.get_children():
         checkpoint.connect("activated", self, "save_checkpoint", [checkpoint])
+    for p_index in range(0, $Portals.get_child_count(), 2):
+        if p_index + 1 >= $Portals.get_child_count():
+            continue
+        var a = $Portals.get_child(p_index)
+        var b = $Portals.get_child(p_index+1)
+        a.connect("discombobulated", b, "recombobulate")
+        b.connect("discombobulated", a, "recombobulate")
     $CL/Menu/Container/Panel/VBox/LevelCount.text = "Level %s" % LL.get_display_index(name)
     $CL/Menu/Container/Panel/VBox/LevelName.text = LL.get_display_name(name)
     for label in $CL/Menu/Container/Panel/VBox.get_children():

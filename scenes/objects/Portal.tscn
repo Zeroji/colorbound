@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/sounds/portal_out.wav" type="AudioStream" id=7]
 
 [sub_resource type="AtlasTexture" id=1]
+resource_local_to_scene = true
 atlas = ExtResource( 2 )
 region = Rect2( 96, 0, 96, 40 )
 
@@ -52,6 +53,13 @@ script = ExtResource( 1 )
 position = Vector2( 0, 20 )
 z_index = 3
 texture = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+margin_left = -48.0
+margin_top = 12.0
+margin_right = 48.0
+margin_bottom = 60.0
+color = Color( 0, 0, 0, 1 )
 
 [node name="Middle" type="Sprite" parent="."]
 editor/display_folded = true
