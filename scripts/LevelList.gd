@@ -32,6 +32,7 @@ var Levels = [{
     }, {
         name = "Whoosh", dir = 'whoosh', levels = [
             {key = 'Whoosh_01', label = "Thinking with portals", req=['Death_01']},
+            {key = 'Whoosh_02', label = "Momentum conservation"},
         ]
     }, {
         name = "Extras", dir = 'extra', levels = [

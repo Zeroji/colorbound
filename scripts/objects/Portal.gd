@@ -46,7 +46,7 @@ var sent_player = null
 var sent_velocity = null
 
 func _on_Portal_body_entered(body):
-    if body is Player:
+    if body is Player and body.alive:
         sent_player = body
         sent_velocity = body.actual_velocity
         body.immobilize()

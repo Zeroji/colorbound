@@ -13,10 +13,10 @@
 shader = ExtResource( 2 )
 shader_param/shift = 0.5
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 8
 font_data = ExtResource( 4 )
 
@@ -63,7 +63,7 @@ size_flags_vertical = 3
 margin_top = 468.0
 margin_right = 832.0
 margin_bottom = 560.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Use [A] [D] or
 [<] [>] to move
 
@@ -141,7 +141,7 @@ margin_left = -80.0
 margin_top = 2.0
 margin_right = 80.0
 margin_bottom = 32.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 align = 1
 valign = 1
 uppercase = true
@@ -167,7 +167,7 @@ margin_left = 528.0
 margin_top = 144.0
 margin_right = 800.0
 margin_bottom = 160.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Game Off 2019"
 align = 1
 valign = 1
@@ -177,7 +177,7 @@ margin_left = 640.0
 margin_top = 624.0
 margin_right = 1024.0
 margin_bottom = 640.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.580392, 0.580392, 0.580392, 1 )
 text = "Built with Godot Engine"
 align = 1
@@ -187,7 +187,7 @@ valign = 1
 margin_top = 624.0
 margin_right = 240.0
 margin_bottom = 640.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.580392, 0.580392, 0.580392, 1 )
 text = "(c) 2019 Zeroji"
 align = 1
