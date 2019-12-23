@@ -28,7 +28,3 @@ func _ready():
 func _process(delta):
     if Engine.editor_hint:
         update_sprite()
-
-func _input(event):
-    if event.is_action_pressed("colorblind_mode"):
-        visible = not visible
